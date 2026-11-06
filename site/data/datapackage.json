@@ -60,6 +60,18 @@
         { "name": "status", "type": "string", "constraints": { "enum": ["estimate", "projection"] } } ] }
     },
     {
+      "name": "oecd_extra_metrics", "path": "oecd_extra_metrics.csv", "format": "csv",
+      "description": "Per-country extra metrics from the OECD Productivity Database: GDP per capita (constant PPP US$) and share of the US, hours worked per head of population, and growth-accounting contributions (percentage points per year) of MFP and capital deepening to labour productivity growth, averaged over 2015-19 and 2020-24 (or latest available year).",
+      "schema": { "fields": [
+        { "name": "code", "type": "string" }, { "name": "country", "type": "string" },
+        { "name": "gdp_pc_2025", "type": "number" }, { "name": "gdp_pc_pct_us_2025", "type": "number" },
+        { "name": "gdp_pc_growth_2019_2025", "type": "number", "description": "Compound average annual % growth" },
+        { "name": "hrs_pop_2019", "type": "number" }, { "name": "hrs_pop_2025", "type": "number" },
+        { "name": "hrs_pop_change_2019_2025", "type": "number", "description": "% change" },
+        { "name": "mfp_contrib_2015_2019", "type": "number" }, { "name": "mfp_contrib_2020_2024", "type": "number" },
+        { "name": "capdeep_contrib_2015_2019", "type": "number" }, { "name": "capdeep_contrib_2020_2024", "type": "number" } ] }
+    },
+    {
       "name": "growth_summary", "path": "growth_summary.csv", "format": "csv",
       "description": "Compound average annual growth of GDP per hour worked between the endpoint years of each period, by source.",
       "schema": { "fields": [
