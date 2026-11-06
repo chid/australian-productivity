@@ -1,0 +1,11 @@
+body { max-width: 760px; margin: 40px auto; padding: 0 16px; font: 17px/1.6 Georgia, "Times New Roman", serif; color: #111; background: #fff; }
+h1, h2, h3 { font-family: system-ui, -apple-system, "Segoe UI", sans-serif; line-height: 1.25; }
+h1.title { font-size: 28px; }
+.author, .date { color: #555; margin: 0; }
+.abstract { background: #f6f6f4; padding: 12px 18px; border-radius: 6px; font-size: 15px; }
+figure { margin: 24px 0; } figure img { max-width: 100%; } figcaption { font-size: 14px; color: #444; }
+table { border-collapse: collapse; font-size: 14px; margin: 16px 0; width: 100%; }
+th, td { border-bottom: 1px solid #ddd; padding: 4px 8px; text-align: right; }
+th:first-child, td:first-child { text-align: left; }
+#refs { font-size: 14px; }
+@media (prefers-color-scheme: dark) { body { background: #151515; color: #eee; } .abstract { background: #222; } th, td { border-color: #333; } figcaption, .author, .date { color: #aaa; } figure img { background: #fff; } a { color: #86b6ef; } }
