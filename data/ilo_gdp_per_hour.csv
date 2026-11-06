@@ -1,0 +1,553 @@
+country_code,country,region,year,gdp_per_hour_ppp_2021,pct_of_australia,status
+AUS,Australia,Australia & NZ,2005,58.73,100.0,estimate
+AUS,Australia,Australia & NZ,2006,59.23,100.0,estimate
+AUS,Australia,Australia & NZ,2007,59.64,100.0,estimate
+AUS,Australia,Australia & NZ,2008,60.13,100.0,estimate
+AUS,Australia,Australia & NZ,2009,61.92,100.0,estimate
+AUS,Australia,Australia & NZ,2010,61.72,100.0,estimate
+AUS,Australia,Australia & NZ,2011,61.99,100.0,estimate
+AUS,Australia,Australia & NZ,2012,64.0,100.0,estimate
+AUS,Australia,Australia & NZ,2013,65.17,100.0,estimate
+AUS,Australia,Australia & NZ,2014,66.68,100.0,estimate
+AUS,Australia,Australia & NZ,2015,66.89,100.0,estimate
+AUS,Australia,Australia & NZ,2016,67.89,100.0,estimate
+AUS,Australia,Australia & NZ,2017,67.72,100.0,estimate
+AUS,Australia,Australia & NZ,2018,68.26,100.0,estimate
+AUS,Australia,Australia & NZ,2019,68.3,100.0,estimate
+AUS,Australia,Australia & NZ,2020,69.92,100.0,estimate
+AUS,Australia,Australia & NZ,2021,70.28,100.0,estimate
+AUS,Australia,Australia & NZ,2022,70.31,100.0,estimate
+AUS,Australia,Australia & NZ,2023,69.9,100.0,estimate
+AUS,Australia,Australia & NZ,2024,71.06,100.0,estimate
+AUS,Australia,Australia & NZ,2025,71.81,100.0,estimate
+AUS,Australia,Australia & NZ,2026,72.74,100.0,projection
+AUS,Australia,Australia & NZ,2027,73.81,100.0,projection
+USA,United States,North America,2005,63.14,107.5,estimate
+USA,United States,North America,2006,63.6,107.4,estimate
+USA,United States,North America,2007,64.33,107.9,estimate
+USA,United States,North America,2008,64.81,107.8,estimate
+USA,United States,North America,2009,67.2,108.5,estimate
+USA,United States,North America,2010,68.5,111.0,estimate
+USA,United States,North America,2011,68.56,110.6,estimate
+USA,United States,North America,2012,68.57,107.1,estimate
+USA,United States,North America,2013,68.81,105.6,estimate
+USA,United States,North America,2014,69.19,103.8,estimate
+USA,United States,North America,2015,70.04,104.7,estimate
+USA,United States,North America,2016,69.87,102.9,estimate
+USA,United States,North America,2017,70.47,104.1,estimate
+USA,United States,North America,2018,70.92,103.9,estimate
+USA,United States,North America,2019,71.38,104.5,estimate
+USA,United States,North America,2020,76.35,109.2,estimate
+USA,United States,North America,2021,76.94,109.5,estimate
+USA,United States,North America,2022,76.88,109.3,estimate
+USA,United States,North America,2023,78.13,111.8,estimate
+USA,United States,North America,2024,80.56,113.4,estimate
+USA,United States,North America,2025,81.8,113.9,estimate
+USA,United States,North America,2026,83.44,114.7,projection
+USA,United States,North America,2027,84.84,114.9,projection
+CAN,Canada,North America,2005,58.43,99.5,estimate
+CAN,Canada,North America,2006,59.54,100.5,estimate
+CAN,Canada,North America,2007,59.33,99.5,estimate
+CAN,Canada,North America,2008,59.56,99.1,estimate
+CAN,Canada,North America,2009,60.28,97.4,estimate
+CAN,Canada,North America,2010,60.52,98.1,estimate
+CAN,Canada,North America,2011,61.26,98.8,estimate
+CAN,Canada,North America,2012,61.03,95.4,estimate
+CAN,Canada,North America,2013,61.97,95.1,estimate
+CAN,Canada,North America,2014,64.44,96.6,estimate
+CAN,Canada,North America,2015,63.77,95.3,estimate
+CAN,Canada,North America,2016,64.16,94.5,estimate
+CAN,Canada,North America,2017,65.1,96.1,estimate
+CAN,Canada,North America,2018,65.03,95.3,estimate
+CAN,Canada,North America,2019,66.09,96.8,estimate
+CAN,Canada,North America,2020,68.92,98.6,estimate
+CAN,Canada,North America,2021,66.74,95.0,estimate
+CAN,Canada,North America,2022,67.47,96.0,estimate
+CAN,Canada,North America,2023,67.07,96.0,estimate
+CAN,Canada,North America,2024,68.63,96.6,estimate
+CAN,Canada,North America,2025,69.76,97.1,estimate
+CAN,Canada,North America,2026,70.7,97.2,projection
+CAN,Canada,North America,2027,71.68,97.1,projection
+DEU,Germany,Europe,2005,66.74,113.6,estimate
+DEU,Germany,Europe,2006,68.04,114.9,estimate
+DEU,Germany,Europe,2007,69.24,116.1,estimate
+DEU,Germany,Europe,2008,69.58,115.7,estimate
+DEU,Germany,Europe,2009,67.72,109.4,estimate
+DEU,Germany,Europe,2010,69.86,113.2,estimate
+DEU,Germany,Europe,2011,71.7,115.7,estimate
+DEU,Germany,Europe,2012,71.96,112.4,estimate
+DEU,Germany,Europe,2013,72.43,111.1,estimate
+DEU,Germany,Europe,2014,73.26,109.9,estimate
+DEU,Germany,Europe,2015,74.11,110.8,estimate
+DEU,Germany,Europe,2016,74.0,109.0,estimate
+DEU,Germany,Europe,2017,76.39,112.8,estimate
+DEU,Germany,Europe,2018,76.6,112.2,estimate
+DEU,Germany,Europe,2019,76.87,112.5,estimate
+DEU,Germany,Europe,2020,78.12,111.7,estimate
+DEU,Germany,Europe,2021,80.2,114.1,estimate
+DEU,Germany,Europe,2022,80.53,114.5,estimate
+DEU,Germany,Europe,2023,78.99,113.0,estimate
+DEU,Germany,Europe,2024,79.22,111.5,estimate
+DEU,Germany,Europe,2025,80.52,112.1,estimate
+DEU,Germany,Europe,2026,82.31,113.2,projection
+DEU,Germany,Europe,2027,84.25,114.1,projection
+FRA,France,Europe,2005,69.84,118.9,estimate
+FRA,France,Europe,2006,71.21,120.2,estimate
+FRA,France,Europe,2007,71.95,120.6,estimate
+FRA,France,Europe,2008,71.5,118.9,estimate
+FRA,France,Europe,2009,70.44,113.8,estimate
+FRA,France,Europe,2010,71.93,116.5,estimate
+FRA,France,Europe,2011,73.58,118.7,estimate
+FRA,France,Europe,2012,73.72,115.2,estimate
+FRA,France,Europe,2013,73.98,113.5,estimate
+FRA,France,Europe,2014,75.64,113.4,estimate
+FRA,France,Europe,2015,76.42,114.2,estimate
+FRA,France,Europe,2016,76.8,113.1,estimate
+FRA,France,Europe,2017,77.96,115.1,estimate
+FRA,France,Europe,2018,78.82,115.5,estimate
+FRA,France,Europe,2019,79.75,116.8,estimate
+FRA,France,Europe,2020,79.68,114.0,estimate
+FRA,France,Europe,2021,78.87,112.2,estimate
+FRA,France,Europe,2022,78.04,111.0,estimate
+FRA,France,Europe,2023,78.64,112.5,estimate
+FRA,France,Europe,2024,79.46,111.8,estimate
+FRA,France,Europe,2025,80.18,111.7,estimate
+FRA,France,Europe,2026,81.08,111.5,projection
+FRA,France,Europe,2027,82.04,111.2,projection
+GBR,United Kingdom,Europe,2005,60.99,103.8,estimate
+GBR,United Kingdom,Europe,2006,62.07,104.8,estimate
+GBR,United Kingdom,Europe,2007,63.19,106.0,estimate
+GBR,United Kingdom,Europe,2008,63.22,105.1,estimate
+GBR,United Kingdom,Europe,2009,61.55,99.4,estimate
+GBR,United Kingdom,Europe,2010,63.18,102.4,estimate
+GBR,United Kingdom,Europe,2011,63.0,101.6,estimate
+GBR,United Kingdom,Europe,2012,63.04,98.5,estimate
+GBR,United Kingdom,Europe,2013,64.06,98.3,estimate
+GBR,United Kingdom,Europe,2014,63.2,94.8,estimate
+GBR,United Kingdom,Europe,2015,63.82,95.4,estimate
+GBR,United Kingdom,Europe,2016,64.6,95.2,estimate
+GBR,United Kingdom,Europe,2017,64.72,95.6,estimate
+GBR,United Kingdom,Europe,2018,64.69,94.8,estimate
+GBR,United Kingdom,Europe,2019,68.04,99.6,estimate
+GBR,United Kingdom,Europe,2020,65.47,93.6,estimate
+GBR,United Kingdom,Europe,2021,68.22,97.1,estimate
+GBR,United Kingdom,Europe,2022,66.64,94.8,estimate
+GBR,United Kingdom,Europe,2023,66.74,95.5,estimate
+GBR,United Kingdom,Europe,2024,66.54,93.6,estimate
+GBR,United Kingdom,Europe,2025,67.3,93.7,estimate
+GBR,United Kingdom,Europe,2026,67.94,93.4,projection
+GBR,United Kingdom,Europe,2027,68.7,93.1,projection
+ITA,Italy,Europe,2005,72.9,124.1,estimate
+ITA,Italy,Europe,2006,73.36,123.9,estimate
+ITA,Italy,Europe,2007,73.7,123.6,estimate
+ITA,Italy,Europe,2008,73.11,121.6,estimate
+ITA,Italy,Europe,2009,72.16,116.5,estimate
+ITA,Italy,Europe,2010,72.77,117.9,estimate
+ITA,Italy,Europe,2011,73.31,118.3,estimate
+ITA,Italy,Europe,2012,73.24,114.4,estimate
+ITA,Italy,Europe,2013,73.62,113.0,estimate
+ITA,Italy,Europe,2014,73.8,110.7,estimate
+ITA,Italy,Europe,2015,73.75,110.3,estimate
+ITA,Italy,Europe,2016,72.5,106.8,estimate
+ITA,Italy,Europe,2017,72.49,107.0,estimate
+ITA,Italy,Europe,2018,72.07,105.6,estimate
+ITA,Italy,Europe,2019,72.15,105.6,estimate
+ITA,Italy,Europe,2020,74.22,106.1,estimate
+ITA,Italy,Europe,2021,74.22,105.6,estimate
+ITA,Italy,Europe,2022,74.8,106.4,estimate
+ITA,Italy,Europe,2023,73.7,105.4,estimate
+ITA,Italy,Europe,2024,73.32,103.2,estimate
+ITA,Italy,Europe,2025,74.11,103.2,estimate
+ITA,Italy,Europe,2026,75.1,103.2,projection
+ITA,Italy,Europe,2027,76.09,103.1,projection
+ESP,Spain,Europe,2005,54.13,92.2,estimate
+ESP,Spain,Europe,2006,53.39,90.1,estimate
+ESP,Spain,Europe,2007,54.46,91.3,estimate
+ESP,Spain,Europe,2008,55.49,92.3,estimate
+ESP,Spain,Europe,2009,57.79,93.3,estimate
+ESP,Spain,Europe,2010,58.77,95.2,estimate
+ESP,Spain,Europe,2011,59.77,96.4,estimate
+ESP,Spain,Europe,2012,61.02,95.3,estimate
+ESP,Spain,Europe,2013,61.8,94.8,estimate
+ESP,Spain,Europe,2014,61.27,91.9,estimate
+ESP,Spain,Europe,2015,62.09,92.8,estimate
+ESP,Spain,Europe,2016,62.46,92.0,estimate
+ESP,Spain,Europe,2017,63.36,93.6,estimate
+ESP,Spain,Europe,2018,62.78,92.0,estimate
+ESP,Spain,Europe,2019,63.15,92.5,estimate
+ESP,Spain,Europe,2020,64.63,92.4,estimate
+ESP,Spain,Europe,2021,63.42,90.2,estimate
+ESP,Spain,Europe,2022,65.07,92.5,estimate
+ESP,Spain,Europe,2023,65.95,94.3,estimate
+ESP,Spain,Europe,2024,66.87,94.1,estimate
+ESP,Spain,Europe,2025,68.11,94.8,estimate
+ESP,Spain,Europe,2026,69.42,95.4,projection
+ESP,Spain,Europe,2027,70.94,96.1,projection
+NLD,Netherlands,Europe,2005,78.31,133.3,estimate
+NLD,Netherlands,Europe,2006,78.68,132.8,estimate
+NLD,Netherlands,Europe,2007,81.25,136.2,estimate
+NLD,Netherlands,Europe,2008,82.37,137.0,estimate
+NLD,Netherlands,Europe,2009,79.8,128.9,estimate
+NLD,Netherlands,Europe,2010,82.18,133.1,estimate
+NLD,Netherlands,Europe,2011,82.83,133.6,estimate
+NLD,Netherlands,Europe,2012,82.82,129.4,estimate
+NLD,Netherlands,Europe,2013,84.34,129.4,estimate
+NLD,Netherlands,Europe,2014,84.74,127.1,estimate
+NLD,Netherlands,Europe,2015,85.81,128.3,estimate
+NLD,Netherlands,Europe,2016,85.55,126.0,estimate
+NLD,Netherlands,Europe,2017,86.21,127.3,estimate
+NLD,Netherlands,Europe,2018,86.85,127.2,estimate
+NLD,Netherlands,Europe,2019,86.88,127.2,estimate
+NLD,Netherlands,Europe,2020,86.07,123.1,estimate
+NLD,Netherlands,Europe,2021,90.44,128.7,estimate
+NLD,Netherlands,Europe,2022,92.11,131.0,estimate
+NLD,Netherlands,Europe,2023,90.32,129.2,estimate
+NLD,Netherlands,Europe,2024,91.23,128.4,estimate
+NLD,Netherlands,Europe,2025,92.3,128.5,estimate
+NLD,Netherlands,Europe,2026,93.35,128.3,projection
+NLD,Netherlands,Europe,2027,94.52,128.1,projection
+NZL,New Zealand,Australia & NZ,2005,44.36,75.5,estimate
+NZL,New Zealand,Australia & NZ,2006,45.09,76.1,estimate
+NZL,New Zealand,Australia & NZ,2007,46.19,77.4,estimate
+NZL,New Zealand,Australia & NZ,2008,45.86,76.3,estimate
+NZL,New Zealand,Australia & NZ,2009,47.0,75.9,estimate
+NZL,New Zealand,Australia & NZ,2010,47.12,76.3,estimate
+NZL,New Zealand,Australia & NZ,2011,47.61,76.8,estimate
+NZL,New Zealand,Australia & NZ,2012,49.09,76.7,estimate
+NZL,New Zealand,Australia & NZ,2013,48.74,74.8,estimate
+NZL,New Zealand,Australia & NZ,2014,48.74,73.1,estimate
+NZL,New Zealand,Australia & NZ,2015,49.43,73.9,estimate
+NZL,New Zealand,Australia & NZ,2016,49.06,72.3,estimate
+NZL,New Zealand,Australia & NZ,2017,48.65,71.8,estimate
+NZL,New Zealand,Australia & NZ,2018,49.04,71.8,estimate
+NZL,New Zealand,Australia & NZ,2019,48.65,71.2,estimate
+NZL,New Zealand,Australia & NZ,2020,48.82,69.8,estimate
+NZL,New Zealand,Australia & NZ,2021,50.56,71.9,estimate
+NZL,New Zealand,Australia & NZ,2022,50.45,71.8,estimate
+NZL,New Zealand,Australia & NZ,2023,50.53,72.3,estimate
+NZL,New Zealand,Australia & NZ,2024,51.18,72.0,estimate
+NZL,New Zealand,Australia & NZ,2025,51.43,71.6,estimate
+NZL,New Zealand,Australia & NZ,2026,52.25,71.8,projection
+NZL,New Zealand,Australia & NZ,2027,53.09,71.9,projection
+JPN,Japan,North Asia,2005,46.37,79.0,estimate
+JPN,Japan,North Asia,2006,46.57,78.6,estimate
+JPN,Japan,North Asia,2007,47.08,78.9,estimate
+JPN,Japan,North Asia,2008,47.06,78.3,estimate
+JPN,Japan,North Asia,2009,46.54,75.2,estimate
+JPN,Japan,North Asia,2010,48.12,78.0,estimate
+JPN,Japan,North Asia,2011,48.25,77.8,estimate
+JPN,Japan,North Asia,2012,48.54,75.8,estimate
+JPN,Japan,North Asia,2013,49.49,75.9,estimate
+JPN,Japan,North Asia,2014,49.41,74.1,estimate
+JPN,Japan,North Asia,2015,50.32,75.2,estimate
+JPN,Japan,North Asia,2016,50.28,74.1,estimate
+JPN,Japan,North Asia,2017,50.69,74.9,estimate
+JPN,Japan,North Asia,2018,50.86,74.5,estimate
+JPN,Japan,North Asia,2019,51.25,75.0,estimate
+JPN,Japan,North Asia,2020,50.92,72.8,estimate
+JPN,Japan,North Asia,2021,52.02,74.0,estimate
+JPN,Japan,North Asia,2022,52.23,74.3,estimate
+JPN,Japan,North Asia,2023,52.55,75.2,estimate
+JPN,Japan,North Asia,2024,52.14,73.4,estimate
+JPN,Japan,North Asia,2025,52.71,73.4,estimate
+JPN,Japan,North Asia,2026,53.09,73.0,projection
+JPN,Japan,North Asia,2027,53.54,72.5,projection
+KOR,Korea,North Asia,2005,26.62,45.3,estimate
+KOR,Korea,North Asia,2006,27.8,46.9,estimate
+KOR,Korea,North Asia,2007,29.55,49.5,estimate
+KOR,Korea,North Asia,2008,31.02,51.6,estimate
+KOR,Korea,North Asia,2009,31.49,50.9,estimate
+KOR,Korea,North Asia,2010,33.74,54.7,estimate
+KOR,Korea,North Asia,2011,35.18,56.8,estimate
+KOR,Korea,North Asia,2012,34.58,54.0,estimate
+KOR,Korea,North Asia,2013,36.18,55.5,estimate
+KOR,Korea,North Asia,2014,35.66,53.5,estimate
+KOR,Korea,North Asia,2015,36.28,54.2,estimate
+KOR,Korea,North Asia,2016,37.5,55.2,estimate
+KOR,Korea,North Asia,2017,38.39,56.7,estimate
+KOR,Korea,North Asia,2018,40.6,59.5,estimate
+KOR,Korea,North Asia,2019,41.93,61.4,estimate
+KOR,Korea,North Asia,2020,43.84,62.7,estimate
+KOR,Korea,North Asia,2021,45.52,64.8,estimate
+KOR,Korea,North Asia,2022,46.08,65.5,estimate
+KOR,Korea,North Asia,2023,45.48,65.1,estimate
+KOR,Korea,North Asia,2024,47.61,67.0,estimate
+KOR,Korea,North Asia,2025,47.93,66.7,estimate
+KOR,Korea,North Asia,2026,48.87,67.2,projection
+KOR,Korea,North Asia,2027,50.05,67.8,projection
+CHN,China,North Asia,2005,4.56,7.8,estimate
+CHN,China,North Asia,2006,5.14,8.7,estimate
+CHN,China,North Asia,2007,6.05,10.1,estimate
+CHN,China,North Asia,2008,6.75,11.2,estimate
+CHN,China,North Asia,2009,7.35,11.9,estimate
+CHN,China,North Asia,2010,7.68,12.4,estimate
+CHN,China,North Asia,2011,8.5,13.7,estimate
+CHN,China,North Asia,2012,9.14,14.3,estimate
+CHN,China,North Asia,2013,9.78,15.0,estimate
+CHN,China,North Asia,2014,10.5,15.7,estimate
+CHN,China,North Asia,2015,11.31,16.9,estimate
+CHN,China,North Asia,2016,12.11,17.8,estimate
+CHN,China,North Asia,2017,13.04,19.3,estimate
+CHN,China,North Asia,2018,14.02,20.5,estimate
+CHN,China,North Asia,2019,15.02,22.0,estimate
+CHN,China,North Asia,2020,16.54,23.7,estimate
+CHN,China,North Asia,2021,17.18,24.4,estimate
+CHN,China,North Asia,2022,17.59,25.0,estimate
+CHN,China,North Asia,2023,18.47,26.4,estimate
+CHN,China,North Asia,2024,19.65,27.7,estimate
+CHN,China,North Asia,2025,20.59,28.7,estimate
+CHN,China,North Asia,2026,21.44,29.5,projection
+CHN,China,North Asia,2027,22.35,30.3,projection
+IND,India,South Asia,2005,4.39,7.5,estimate
+IND,India,South Asia,2006,4.72,8.0,estimate
+IND,India,South Asia,2007,5.03,8.4,estimate
+IND,India,South Asia,2008,5.12,8.5,estimate
+IND,India,South Asia,2009,5.44,8.8,estimate
+IND,India,South Asia,2010,5.85,9.5,estimate
+IND,India,South Asia,2011,6.07,9.8,estimate
+IND,India,South Asia,2012,6.3,9.8,estimate
+IND,India,South Asia,2013,6.57,10.1,estimate
+IND,India,South Asia,2014,6.88,10.3,estimate
+IND,India,South Asia,2015,7.3,10.9,estimate
+IND,India,South Asia,2016,7.78,11.5,estimate
+IND,India,South Asia,2017,8.15,12.0,estimate
+IND,India,South Asia,2018,8.5,12.5,estimate
+IND,India,South Asia,2019,8.57,12.5,estimate
+IND,India,South Asia,2020,8.37,12.0,estimate
+IND,India,South Asia,2021,8.91,12.7,estimate
+IND,India,South Asia,2022,9.31,13.2,estimate
+IND,India,South Asia,2023,9.94,14.2,estimate
+IND,India,South Asia,2024,10.28,14.5,estimate
+IND,India,South Asia,2025,10.81,15.1,estimate
+IND,India,South Asia,2026,11.31,15.5,projection
+IND,India,South Asia,2027,11.87,16.1,projection
+SGP,Singapore,Southeast Asia,2005,66.35,113.0,estimate
+SGP,Singapore,Southeast Asia,2006,67.96,114.7,estimate
+SGP,Singapore,Southeast Asia,2007,70.51,118.2,estimate
+SGP,Singapore,Southeast Asia,2008,66.94,111.3,estimate
+SGP,Singapore,Southeast Asia,2009,66.08,106.7,estimate
+SGP,Singapore,Southeast Asia,2010,71.79,116.3,estimate
+SGP,Singapore,Southeast Asia,2011,74.51,120.2,estimate
+SGP,Singapore,Southeast Asia,2012,75.6,118.1,estimate
+SGP,Singapore,Southeast Asia,2013,78.45,120.4,estimate
+SGP,Singapore,Southeast Asia,2014,81.01,121.5,estimate
+SGP,Singapore,Southeast Asia,2015,81.3,121.5,estimate
+SGP,Singapore,Southeast Asia,2016,83.68,123.3,estimate
+SGP,Singapore,Southeast Asia,2017,86.76,128.1,estimate
+SGP,Singapore,Southeast Asia,2018,90.11,132.0,estimate
+SGP,Singapore,Southeast Asia,2019,88.59,129.7,estimate
+SGP,Singapore,Southeast Asia,2020,91.46,130.8,estimate
+SGP,Singapore,Southeast Asia,2021,96.77,137.7,estimate
+SGP,Singapore,Southeast Asia,2022,96.83,137.7,estimate
+SGP,Singapore,Southeast Asia,2023,96.6,138.2,estimate
+SGP,Singapore,Southeast Asia,2024,99.45,140.0,estimate
+SGP,Singapore,Southeast Asia,2025,100.42,139.8,estimate
+SGP,Singapore,Southeast Asia,2026,101.39,139.4,projection
+SGP,Singapore,Southeast Asia,2027,102.77,139.2,projection
+BRN,Brunei Darussalam,Southeast Asia,2005,89.24,151.9,estimate
+BRN,Brunei Darussalam,Southeast Asia,2006,90.9,153.5,estimate
+BRN,Brunei Darussalam,Southeast Asia,2007,86.25,144.6,estimate
+BRN,Brunei Darussalam,Southeast Asia,2008,81.84,136.1,estimate
+BRN,Brunei Darussalam,Southeast Asia,2009,79.28,128.0,estimate
+BRN,Brunei Darussalam,Southeast Asia,2010,80.04,129.7,estimate
+BRN,Brunei Darussalam,Southeast Asia,2011,81.41,131.3,estimate
+BRN,Brunei Darussalam,Southeast Asia,2012,80.77,126.2,estimate
+BRN,Brunei Darussalam,Southeast Asia,2013,78.0,119.7,estimate
+BRN,Brunei Darussalam,Southeast Asia,2014,75.05,112.6,estimate
+BRN,Brunei Darussalam,Southeast Asia,2015,74.05,110.7,estimate
+BRN,Brunei Darussalam,Southeast Asia,2016,71.61,105.5,estimate
+BRN,Brunei Darussalam,Southeast Asia,2017,71.88,106.1,estimate
+BRN,Brunei Darussalam,Southeast Asia,2018,68.44,100.3,estimate
+BRN,Brunei Darussalam,Southeast Asia,2019,70.83,103.7,estimate
+BRN,Brunei Darussalam,Southeast Asia,2020,76.35,109.2,estimate
+BRN,Brunei Darussalam,Southeast Asia,2021,68.23,97.1,estimate
+BRN,Brunei Darussalam,Southeast Asia,2022,67.36,95.8,estimate
+BRN,Brunei Darussalam,Southeast Asia,2023,67.93,97.2,estimate
+BRN,Brunei Darussalam,Southeast Asia,2024,70.16,98.7,estimate
+BRN,Brunei Darussalam,Southeast Asia,2025,71.07,99.0,estimate
+BRN,Brunei Darussalam,Southeast Asia,2026,72.47,99.6,projection
+BRN,Brunei Darussalam,Southeast Asia,2027,74.04,100.3,projection
+MYS,Malaysia,Southeast Asia,2005,20.76,35.3,estimate
+MYS,Malaysia,Southeast Asia,2006,21.21,35.8,estimate
+MYS,Malaysia,Southeast Asia,2007,22.09,37.0,estimate
+MYS,Malaysia,Southeast Asia,2008,22.56,37.5,estimate
+MYS,Malaysia,Southeast Asia,2009,21.42,34.6,estimate
+MYS,Malaysia,Southeast Asia,2010,22.18,35.9,estimate
+MYS,Malaysia,Southeast Asia,2011,22.78,36.7,estimate
+MYS,Malaysia,Southeast Asia,2012,23.25,36.3,estimate
+MYS,Malaysia,Southeast Asia,2013,23.7,36.4,estimate
+MYS,Malaysia,Southeast Asia,2014,23.97,35.9,estimate
+MYS,Malaysia,Southeast Asia,2015,25.04,37.4,estimate
+MYS,Malaysia,Southeast Asia,2016,25.66,37.8,estimate
+MYS,Malaysia,Southeast Asia,2017,26.52,39.2,estimate
+MYS,Malaysia,Southeast Asia,2018,27.33,40.0,estimate
+MYS,Malaysia,Southeast Asia,2019,27.75,40.6,estimate
+MYS,Malaysia,Southeast Asia,2020,27.35,39.1,estimate
+MYS,Malaysia,Southeast Asia,2021,27.44,39.0,estimate
+MYS,Malaysia,Southeast Asia,2022,28.16,40.1,estimate
+MYS,Malaysia,Southeast Asia,2023,28.67,41.0,estimate
+MYS,Malaysia,Southeast Asia,2024,29.68,41.8,estimate
+MYS,Malaysia,Southeast Asia,2025,30.42,42.4,estimate
+MYS,Malaysia,Southeast Asia,2026,31.08,42.7,projection
+MYS,Malaysia,Southeast Asia,2027,31.78,43.1,projection
+THA,Thailand,Southeast Asia,2005,10.71,18.2,estimate
+THA,Thailand,Southeast Asia,2006,11.23,19.0,estimate
+THA,Thailand,Southeast Asia,2007,11.69,19.6,estimate
+THA,Thailand,Southeast Asia,2008,11.82,19.7,estimate
+THA,Thailand,Southeast Asia,2009,11.73,18.9,estimate
+THA,Thailand,Southeast Asia,2010,12.65,20.5,estimate
+THA,Thailand,Southeast Asia,2011,12.44,20.1,estimate
+THA,Thailand,Southeast Asia,2012,13.28,20.8,estimate
+THA,Thailand,Southeast Asia,2013,14.04,21.5,estimate
+THA,Thailand,Southeast Asia,2014,14.27,21.4,estimate
+THA,Thailand,Southeast Asia,2015,14.92,22.3,estimate
+THA,Thailand,Southeast Asia,2016,15.63,23.0,estimate
+THA,Thailand,Southeast Asia,2017,16.38,24.2,estimate
+THA,Thailand,Southeast Asia,2018,16.91,24.8,estimate
+THA,Thailand,Southeast Asia,2019,17.45,25.5,estimate
+THA,Thailand,Southeast Asia,2020,17.14,24.5,estimate
+THA,Thailand,Southeast Asia,2021,17.24,24.5,estimate
+THA,Thailand,Southeast Asia,2022,16.98,24.2,estimate
+THA,Thailand,Southeast Asia,2023,17.03,24.4,estimate
+THA,Thailand,Southeast Asia,2024,17.49,24.6,estimate
+THA,Thailand,Southeast Asia,2025,17.89,24.9,estimate
+THA,Thailand,Southeast Asia,2026,18.24,25.1,projection
+THA,Thailand,Southeast Asia,2027,18.69,25.3,projection
+IDN,Indonesia,Southeast Asia,2005,8.33,14.2,estimate
+IDN,Indonesia,Southeast Asia,2006,8.57,14.5,estimate
+IDN,Indonesia,Southeast Asia,2007,8.65,14.5,estimate
+IDN,Indonesia,Southeast Asia,2008,9.03,15.0,estimate
+IDN,Indonesia,Southeast Asia,2009,9.26,15.0,estimate
+IDN,Indonesia,Southeast Asia,2010,9.47,15.3,estimate
+IDN,Indonesia,Southeast Asia,2011,9.93,16.0,estimate
+IDN,Indonesia,Southeast Asia,2012,10.35,16.2,estimate
+IDN,Indonesia,Southeast Asia,2013,11.3,17.3,estimate
+IDN,Indonesia,Southeast Asia,2014,11.28,16.9,estimate
+IDN,Indonesia,Southeast Asia,2015,11.49,17.2,estimate
+IDN,Indonesia,Southeast Asia,2016,11.94,17.6,estimate
+IDN,Indonesia,Southeast Asia,2017,12.28,18.1,estimate
+IDN,Indonesia,Southeast Asia,2018,12.95,19.0,estimate
+IDN,Indonesia,Southeast Asia,2019,13.24,19.4,estimate
+IDN,Indonesia,Southeast Asia,2020,13.37,19.1,estimate
+IDN,Indonesia,Southeast Asia,2021,14.25,20.3,estimate
+IDN,Indonesia,Southeast Asia,2022,14.1,20.1,estimate
+IDN,Indonesia,Southeast Asia,2023,14.39,20.6,estimate
+IDN,Indonesia,Southeast Asia,2024,14.96,21.1,estimate
+IDN,Indonesia,Southeast Asia,2025,15.46,21.5,estimate
+IDN,Indonesia,Southeast Asia,2026,15.97,22.0,projection
+IDN,Indonesia,Southeast Asia,2027,16.51,22.4,projection
+VNM,Viet Nam,Southeast Asia,2005,4.86,8.3,estimate
+VNM,Viet Nam,Southeast Asia,2006,5.02,8.5,estimate
+VNM,Viet Nam,Southeast Asia,2007,5.17,8.7,estimate
+VNM,Viet Nam,Southeast Asia,2008,5.36,8.9,estimate
+VNM,Viet Nam,Southeast Asia,2009,5.57,9.0,estimate
+VNM,Viet Nam,Southeast Asia,2010,5.76,9.3,estimate
+VNM,Viet Nam,Southeast Asia,2011,6.01,9.7,estimate
+VNM,Viet Nam,Southeast Asia,2012,6.4,10.0,estimate
+VNM,Viet Nam,Southeast Asia,2013,6.75,10.4,estimate
+VNM,Viet Nam,Southeast Asia,2014,7.19,10.8,estimate
+VNM,Viet Nam,Southeast Asia,2015,7.6,11.4,estimate
+VNM,Viet Nam,Southeast Asia,2016,7.97,11.7,estimate
+VNM,Viet Nam,Southeast Asia,2017,8.7,12.8,estimate
+VNM,Viet Nam,Southeast Asia,2018,8.83,12.9,estimate
+VNM,Viet Nam,Southeast Asia,2019,9.9,14.5,estimate
+VNM,Viet Nam,Southeast Asia,2020,10.29,14.7,estimate
+VNM,Viet Nam,Southeast Asia,2021,10.85,15.4,estimate
+VNM,Viet Nam,Southeast Asia,2022,10.88,15.5,estimate
+VNM,Viet Nam,Southeast Asia,2023,11.35,16.2,estimate
+VNM,Viet Nam,Southeast Asia,2024,12.01,16.9,estimate
+VNM,Viet Nam,Southeast Asia,2025,12.71,17.7,estimate
+VNM,Viet Nam,Southeast Asia,2026,13.34,18.3,projection
+VNM,Viet Nam,Southeast Asia,2027,14.02,19.0,projection
+PHL,Philippines,Southeast Asia,2005,6.8,11.6,estimate
+PHL,Philippines,Southeast Asia,2006,7.13,12.0,estimate
+PHL,Philippines,Southeast Asia,2007,7.33,12.3,estimate
+PHL,Philippines,Southeast Asia,2008,7.45,12.4,estimate
+PHL,Philippines,Southeast Asia,2009,7.48,12.1,estimate
+PHL,Philippines,Southeast Asia,2010,7.69,12.5,estimate
+PHL,Philippines,Southeast Asia,2011,7.79,12.6,estimate
+PHL,Philippines,Southeast Asia,2012,8.16,12.8,estimate
+PHL,Philippines,Southeast Asia,2013,8.42,12.9,estimate
+PHL,Philippines,Southeast Asia,2014,8.86,13.3,estimate
+PHL,Philippines,Southeast Asia,2015,9.23,13.8,estimate
+PHL,Philippines,Southeast Asia,2016,9.3,13.7,estimate
+PHL,Philippines,Southeast Asia,2017,10.32,15.2,estimate
+PHL,Philippines,Southeast Asia,2018,10.57,15.5,estimate
+PHL,Philippines,Southeast Asia,2019,10.91,16.0,estimate
+PHL,Philippines,Southeast Asia,2020,12.35,17.7,estimate
+PHL,Philippines,Southeast Asia,2021,11.39,16.2,estimate
+PHL,Philippines,Southeast Asia,2022,10.68,15.2,estimate
+PHL,Philippines,Southeast Asia,2023,11.19,16.0,estimate
+PHL,Philippines,Southeast Asia,2024,11.58,16.3,estimate
+PHL,Philippines,Southeast Asia,2025,12.01,16.7,estimate
+PHL,Philippines,Southeast Asia,2026,12.49,17.2,projection
+PHL,Philippines,Southeast Asia,2027,13.02,17.6,projection
+LAO,Lao PDR,Southeast Asia,2005,4.6,7.8,estimate
+LAO,Lao PDR,Southeast Asia,2006,4.83,8.2,estimate
+LAO,Lao PDR,Southeast Asia,2007,5.02,8.4,estimate
+LAO,Lao PDR,Southeast Asia,2008,5.24,8.7,estimate
+LAO,Lao PDR,Southeast Asia,2009,5.46,8.8,estimate
+LAO,Lao PDR,Southeast Asia,2010,5.76,9.3,estimate
+LAO,Lao PDR,Southeast Asia,2011,6.13,9.9,estimate
+LAO,Lao PDR,Southeast Asia,2012,6.53,10.2,estimate
+LAO,Lao PDR,Southeast Asia,2013,6.97,10.7,estimate
+LAO,Lao PDR,Southeast Asia,2014,7.41,11.1,estimate
+LAO,Lao PDR,Southeast Asia,2015,7.87,11.8,estimate
+LAO,Lao PDR,Southeast Asia,2016,8.37,12.3,estimate
+LAO,Lao PDR,Southeast Asia,2017,8.89,13.1,estimate
+LAO,Lao PDR,Southeast Asia,2018,9.03,13.2,estimate
+LAO,Lao PDR,Southeast Asia,2019,9.1,13.3,estimate
+LAO,Lao PDR,Southeast Asia,2020,8.98,12.8,estimate
+LAO,Lao PDR,Southeast Asia,2021,8.53,12.1,estimate
+LAO,Lao PDR,Southeast Asia,2022,8.32,11.8,estimate
+LAO,Lao PDR,Southeast Asia,2023,8.43,12.1,estimate
+LAO,Lao PDR,Southeast Asia,2024,8.6,12.1,estimate
+LAO,Lao PDR,Southeast Asia,2025,8.73,12.2,estimate
+LAO,Lao PDR,Southeast Asia,2026,8.78,12.1,projection
+LAO,Lao PDR,Southeast Asia,2027,8.84,12.0,projection
+KHM,Cambodia,Southeast Asia,2005,2.42,4.1,estimate
+KHM,Cambodia,Southeast Asia,2006,2.6,4.4,estimate
+KHM,Cambodia,Southeast Asia,2007,2.77,4.6,estimate
+KHM,Cambodia,Southeast Asia,2008,2.96,4.9,estimate
+KHM,Cambodia,Southeast Asia,2009,2.86,4.6,estimate
+KHM,Cambodia,Southeast Asia,2010,2.85,4.6,estimate
+KHM,Cambodia,Southeast Asia,2011,2.94,4.7,estimate
+KHM,Cambodia,Southeast Asia,2012,3.18,5.0,estimate
+KHM,Cambodia,Southeast Asia,2013,3.48,5.3,estimate
+KHM,Cambodia,Southeast Asia,2014,3.65,5.5,estimate
+KHM,Cambodia,Southeast Asia,2015,3.87,5.8,estimate
+KHM,Cambodia,Southeast Asia,2016,4.02,5.9,estimate
+KHM,Cambodia,Southeast Asia,2017,4.28,6.3,estimate
+KHM,Cambodia,Southeast Asia,2018,4.57,6.7,estimate
+KHM,Cambodia,Southeast Asia,2019,4.83,7.1,estimate
+KHM,Cambodia,Southeast Asia,2020,4.73,6.8,estimate
+KHM,Cambodia,Southeast Asia,2021,4.78,6.8,estimate
+KHM,Cambodia,Southeast Asia,2022,4.74,6.7,estimate
+KHM,Cambodia,Southeast Asia,2023,4.87,7.0,estimate
+KHM,Cambodia,Southeast Asia,2024,5.06,7.1,estimate
+KHM,Cambodia,Southeast Asia,2025,5.22,7.3,estimate
+KHM,Cambodia,Southeast Asia,2026,5.34,7.3,projection
+KHM,Cambodia,Southeast Asia,2027,5.51,7.5,projection
+MMR,Myanmar,Southeast Asia,2005,1.99,3.4,estimate
+MMR,Myanmar,Southeast Asia,2006,2.22,3.7,estimate
+MMR,Myanmar,Southeast Asia,2007,2.46,4.1,estimate
+MMR,Myanmar,Southeast Asia,2008,2.68,4.5,estimate
+MMR,Myanmar,Southeast Asia,2009,2.94,4.7,estimate
+MMR,Myanmar,Southeast Asia,2010,3.19,5.2,estimate
+MMR,Myanmar,Southeast Asia,2011,3.34,5.4,estimate
+MMR,Myanmar,Southeast Asia,2012,3.55,5.5,estimate
+MMR,Myanmar,Southeast Asia,2013,3.81,5.8,estimate
+MMR,Myanmar,Southeast Asia,2014,4.08,6.1,estimate
+MMR,Myanmar,Southeast Asia,2015,4.32,6.5,estimate
+MMR,Myanmar,Southeast Asia,2016,4.71,6.9,estimate
+MMR,Myanmar,Southeast Asia,2017,5.17,7.6,estimate
+MMR,Myanmar,Southeast Asia,2018,5.69,8.3,estimate
+MMR,Myanmar,Southeast Asia,2019,6.14,9.0,estimate
+MMR,Myanmar,Southeast Asia,2020,5.76,8.2,estimate
+MMR,Myanmar,Southeast Asia,2021,6.0,8.5,estimate
+MMR,Myanmar,Southeast Asia,2022,6.0,8.5,estimate
+MMR,Myanmar,Southeast Asia,2023,5.99,8.6,estimate
+MMR,Myanmar,Southeast Asia,2024,5.91,8.3,estimate
+MMR,Myanmar,Southeast Asia,2025,5.79,8.1,estimate
+MMR,Myanmar,Southeast Asia,2026,5.83,8.0,projection
+MMR,Myanmar,Southeast Asia,2027,5.88,8.0,projection

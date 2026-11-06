@@ -1,0 +1,13 @@
+change_type,period,measure,pct_change
+quarter,2026-Q2,Output,0.4
+quarter,2026-Q1,Output,0.3
+year_to,2026-Q2,Output,2.14
+year_to,2025-Q2,Output,1.9
+quarter,2026-Q2,Hours worked,0.4
+quarter,2026-Q1,Hours worked,0.9
+year_to,2026-Q2,Hours worked,2.4
+year_to,2025-Q2,Hours worked,1.69
+quarter,2026-Q2,Labour productivity,0
+quarter,2026-Q1,Labour productivity,-0.6
+year_to,2026-Q2,Labour productivity,-0.2
+year_to,2025-Q2,Labour productivity,0.2

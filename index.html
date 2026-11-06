@@ -1,0 +1,415 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Australian Productivity Compared</title>
+<meta name="description" content="Australia's labour productivity from Productivity Commission data, compared with the US, Canada, Europe and Southeast Asia using OECD and ILO data. Open datasets included.">
+<style>
+:root {
+  color-scheme: light;
+  --page: #f9f9f7; --surface: #fcfcfb; --border: rgba(11,11,11,0.10);
+  --ink: #0b0b0b; --ink-2: #52514e; --muted: #898781;
+  --grid: #e1e0d9; --axis: #c3c2b7;
+  --s1: #2a78d6; --s2: #eb6834; --s3: #1baf7a; --s4: #eda100; --s5: #e87ba4; --s6: #008300;
+  --pos: #2a78d6; --neg: #e34948; --ref: #898781;
+  --link: #1c5cab;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --page: #0d0d0d; --surface: #1a1a19; --border: rgba(255,255,255,0.10);
+    --ink: #f0efec; --ink-2: #c3c2b7; --muted: #898781;
+    --grid: #2c2c2a; --axis: #383835;
+    --s1: #3987e5; --s2: #d95926; --s3: #199e70; --s4: #c98500; --s5: #d55181; --s6: #008300;
+    --pos: #3987e5; --neg: #e66767; --link: #86b6ef;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --page: #0d0d0d; --surface: #1a1a19; --border: rgba(255,255,255,0.10);
+  --ink: #f0efec; --ink-2: #c3c2b7; --muted: #898781;
+  --grid: #2c2c2a; --axis: #383835;
+  --s1: #3987e5; --s2: #d95926; --s3: #199e70; --s4: #c98500; --s5: #d55181; --s6: #008300;
+  --pos: #3987e5; --neg: #e66767; --link: #86b6ef;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--page); color: var(--ink);
+  font: 16px/1.55 system-ui, -apple-system, "Segoe UI", sans-serif; }
+main { max-width: 980px; margin: 0 auto; padding: 32px 16px 64px; }
+a { color: var(--link); }
+h1 { font-size: 30px; line-height: 1.2; margin: 0 0 8px; letter-spacing: -0.01em; }
+h2 { font-size: 21px; margin: 48px 0 6px; }
+h3 { font-size: 16px; margin: 24px 0 4px; }
+p { margin: 8px 0; max-width: 70ch; }
+.lede { color: var(--ink-2); font-size: 18px; }
+.meta { color: var(--muted); font-size: 13px; }
+.tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin: 24px 0 8px; }
+.tile { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; }
+.tile .k { font-size: 13px; color: var(--ink-2); }
+.tile .v { font-size: 30px; font-weight: 650; margin: 2px 0; }
+.tile .s { font-size: 13px; color: var(--muted); }
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 16px; margin-top: 12px; }
+.card .title { font-weight: 600; }
+.card .sub { color: var(--ink-2); font-size: 14px; margin-bottom: 8px; }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 13px; color: var(--ink-2); margin: 4px 0 8px; }
+.legend span { display: inline-flex; align-items: center; gap: 6px; }
+.legend i { width: 14px; height: 3px; border-radius: 2px; display: inline-block; }
+.legend i.sq { height: 10px; width: 10px; border-radius: 2px; }
+.legend i.dash { background: repeating-linear-gradient(90deg, var(--ref) 0 4px, transparent 4px 7px) !important; }
+.chart { position: relative; width: 100%; }
+.chart svg { display: block; width: 100%; height: auto; overflow: visible; }
+.chart text { font-size: 12px; fill: var(--muted); font-variant-numeric: tabular-nums; }
+.chart text.lbl { fill: var(--ink-2); }
+.chart text.lbl-strong { fill: var(--ink); font-weight: 600; }
+.tip { position: absolute; pointer-events: none; background: var(--surface); color: var(--ink);
+  border: 1px solid var(--border); border-radius: 8px; padding: 8px 10px; font-size: 13px;
+  box-shadow: 0 4px 16px rgba(0,0,0,.12); white-space: nowrap; opacity: 0; transition: opacity .1s; z-index: 2; }
+.tip b { font-weight: 600; }
+.tip .row { display: flex; align-items: center; gap: 6px; font-variant-numeric: tabular-nums; }
+.tip .row i { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
+.source { font-size: 12px; color: var(--muted); margin-top: 8px; }
+details { margin-top: 8px; font-size: 14px; }
+summary { cursor: pointer; color: var(--ink-2); }
+.tbl-wrap { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; font-size: 13px; font-variant-numeric: tabular-nums; margin-top: 8px; }
+th, td { text-align: right; padding: 5px 8px; border-bottom: 1px solid var(--grid); }
+th:first-child, td:first-child { text-align: left; }
+th { color: var(--ink-2); font-weight: 600; }
+.seg { display: inline-flex; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; margin: 4px 0 8px; }
+.seg button { font: inherit; font-size: 13px; padding: 5px 12px; border: 0; background: transparent; color: var(--ink-2); cursor: pointer; }
+.seg button[aria-pressed="true"] { background: var(--grid); color: var(--ink); font-weight: 600; }
+ul.notes li { margin: 6px 0; max-width: 72ch; }
+code { font-size: 13px; background: var(--grid); padding: 1px 5px; border-radius: 4px; }
+.theme-toggle { float: right; font: inherit; font-size: 13px; background: var(--surface); color: var(--ink-2);
+  border: 1px solid var(--border); border-radius: 8px; padding: 4px 10px; cursor: pointer; }
+@media (max-width: 560px) { h1 { font-size: 24px; } .tile .v { font-size: 26px; } }
+</style>
+</head>
+<body>
+<main>
+  <button class="theme-toggle" id="themeBtn" type="button">Theme</button>
+  <h1>Australian productivity, compared</h1>
+  <p class="lede">Australia's output per hour has barely grown since 2019. The United States has pulled away, Europe has stalled alongside Australia, and much of Southeast Asia is catching up from a far lower base.</p>
+  <p class="meta">Data: Productivity Commission (Sept 2026 update, June 2026 bulletin), OECD Productivity Database, ILOSTAT modelled estimates. Built <span id="built"></span>. <a href="#data">Download the data</a>.</p>
+
+  <div class="tiles" id="tiles"></div>
+
+  <h2>1. Australia: the quarterly picture</h2>
+  <p>Labour productivity is output (GDP) divided by hours worked. The COVID-era spike was mostly a composition effect: lower-productivity hours dropped out during lockdowns and came back afterwards. Since 2023 the index has moved sideways.</p>
+  <div class="card">
+    <div class="title">Labour productivity index, June 2014 = 100</div>
+    <div class="sub">Quarterly, seasonally adjusted, June 2004 to June 2026</div>
+    <div class="legend" id="lgAu"></div>
+    <div class="chart" id="chAu"></div>
+    <div class="source">Source: Productivity Commission, <i>Productivity update – September 2026</i>, chart data (from ABS national accounts).</div>
+    <details><summary>Show as table</summary><div class="tbl-wrap" id="tbAu"></div></details>
+  </div>
+
+  <h3>Which industries drag?</h3>
+  <div class="card">
+    <div class="title">Cumulative multifactor productivity growth, 2001–02 to 2023–24</div>
+    <div class="sub">Market-sector industries, % change over the whole period</div>
+    <div class="chart" id="chInd"></div>
+    <div class="source">Source: Productivity Commission, <i>Quarterly productivity bulletin – June 2026</i>, Figure 1a (PC calculations from ABS).</div>
+    <details><summary>Show as table</summary><div class="tbl-wrap" id="tbInd"></div></details>
+  </div>
+
+  <h2>2. Australia against the advanced economies</h2>
+  <p>GDP per hour worked, converted at purchasing power parity (PPP: exchange rates adjusted for price differences) so levels can be compared across countries. Each country is shown as a share of the US level in the same year.</p>
+  <div class="card">
+    <div class="title">GDP per hour worked as % of the United States</div>
+    <div class="sub">Annual, 2000 to <span class="oecdLast"></span>, constant 2020 PPP US$</div>
+    <div class="legend" id="lgGap"></div>
+    <div class="chart" id="chGap"></div>
+    <div class="source">Source: OECD Productivity Database (DSD_PDB@DF_PDB v2.0), measure GDPHRS.</div>
+    <details><summary>Show as table</summary><div class="tbl-wrap" id="tbGap"></div></details>
+  </div>
+
+  <div class="card">
+    <div class="title">Average annual labour productivity growth, before and after 2019</div>
+    <div class="sub">GDP per hour worked, % per year, sorted by 2019–25 growth</div>
+    <div class="legend" id="lgGr"></div>
+    <div class="chart" id="chGr"></div>
+    <div class="source">Source: OECD Productivity Database; compound annual growth calculated from the level series.</div>
+    <details><summary>Show as table</summary><div class="tbl-wrap" id="tbGr"></div></details>
+  </div>
+
+  <h2>3. Australia against Southeast Asia</h2>
+  <p>The OECD doesn't cover most of Southeast Asia, so this section uses the ILO's modelled estimates. They are a different series from the OECD figures above, so compare countries within this chart, not across the two sources.</p>
+  <div class="card">
+    <div class="title">GDP per hour worked in 2025, % of Australia</div>
+    <div class="sub">2021 PPP international $; the right-hand column is average annual growth 2019–25</div>
+    <div class="seg" role="group" aria-label="Country set">
+      <button type="button" data-set="sea" aria-pressed="true">ASEAN</button>
+      <button type="button" data-set="asia" aria-pressed="false">ASEAN + China, India, Japan, Korea</button>
+    </div>
+    <div class="chart" id="chSea"></div>
+    <div class="source">Source: ILOSTAT, <i>Output per hour worked (GDP constant 2021 international $ at PPP)</i>, ILO modelled estimates (DF_GDP_2HRW_NOC_NB).</div>
+    <details><summary>Show as table</summary><div class="tbl-wrap" id="tbSea"></div></details>
+  </div>
+
+  <h2>Caveats</h2>
+  <ul class="notes">
+    <li><b>Don't mix the OECD and ILO figures.</b> The ILO model puts Australia's 2019–25 growth at about 0.8% a year and its level at 88% of the US. The OECD says 0.1% and 81%. The OECD figures agree with the PC's own data.</li>
+    <li><b>Level comparisons depend on PPP conversions.</b> Growth rates are more robust than the level rankings. Canada, for example, is 70% of the US on the OECD measure and about 85% on the ILO's.</li>
+    <li><b>The ILO series runs to 2027, but 2026–27 are projections.</b> They are kept in the CSV and flagged <code>status=projection</code>, but no chart uses them.</li>
+    <li><b>The PC data has been revised.</b> The September 2026 release revised past index values up by 0.1–0.3 points compared with the June 2026 release. This page uses the latest release.</li>
+    <li><b>Non-market sector productivity is hard to measure.</b> Much of the output of health, education and public administration is valued by its inputs, which holds measured productivity growth there close to zero.</li>
+    <li><b>Some labels in the PC chart-data workbooks are stale.</b> They say "September 2025" and name the wrong quarters. This page uses the values, re-labelled from their position in the series.</li>
+  </ul>
+
+  <h2 id="data">Data</h2>
+  <p>All files are tidy CSVs in <code>data/</code>, described in <a href="data/datapackage.json"><code>datapackage.json</code></a> (Frictionless Data format). Each source's licence applies to its data (see below).</p>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th>File</th><th>What it holds</th><th>Source</th></tr></thead>
+    <tbody>
+      <tr><td><a href="data/au_labour_productivity_quarterly.csv">au_labour_productivity_quarterly.csv</a></td><td style="text-align:left">Quarterly LP index (Jun 2014 = 100): whole economy, market, non-market sectors</td><td style="text-align:left">PC</td></tr>
+      <tr><td><a href="data/au_headline_change.csv">au_headline_change.csv</a></td><td style="text-align:left">Quarterly and annual % change in output, hours and LP</td><td style="text-align:left">PC</td></tr>
+      <tr><td><a href="data/au_industry_mfp_growth_2002_2024.csv">au_industry_mfp_growth_2002_2024.csv</a></td><td style="text-align:left">Cumulative MFP growth by industry, 2001–02 to 2023–24</td><td style="text-align:left">PC</td></tr>
+      <tr><td><a href="data/oecd_gdp_per_hour.csv">oecd_gdp_per_hour.csv</a></td><td style="text-align:left">GDP per hour worked, constant 2020 PPP US$, plus % of US, 2000–2025</td><td style="text-align:left">OECD</td></tr>
+      <tr><td><a href="data/ilo_gdp_per_hour.csv">ilo_gdp_per_hour.csv</a></td><td style="text-align:left">GDP per hour worked, 2021 PPP $, plus % of Australia, 2005–2027 (projections flagged)</td><td style="text-align:left">ILO</td></tr>
+      <tr><td><a href="data/growth_summary.csv">growth_summary.csv</a></td><td style="text-align:left">Average annual growth for 2005–14, 2014–19 and 2019–25, by country and source</td><td style="text-align:left">Derived</td></tr>
+      <tr><td><a href="data/productivity.json">productivity.json</a></td><td style="text-align:left">Compact bundle that this page reads</td><td style="text-align:left">Derived</td></tr>
+    </tbody>
+  </table></div>
+  <h3>Sources and licences</h3>
+  <ul class="notes">
+    <li>Productivity Commission, <a href="https://www.pc.gov.au/ongoing/productivity-insights/update-september-2026">Productivity update – September 2026</a> and <a href="https://www.pc.gov.au/ongoing/productivity-insights/bulletins/quarterly-bulletin-june-2026">Quarterly productivity bulletin – June 2026</a>. © Commonwealth of Australia, CC BY 4.0.</li>
+    <li>OECD, <a href="https://data-explorer.oecd.org/">Productivity Database</a>, SDMX dataflow <code>OECD.SDD.TPS,DSD_PDB@DF_PDB,2.0</code>. CC BY 4.0.</li>
+    <li>ILO, <a href="https://ilostat.ilo.org/">ILOSTAT</a>, SDMX dataflow <code>ILO,DF_GDP_2HRW_NOC_NB,1.0</code>. CC BY 4.0.</li>
+  </ul>
+  <p class="meta">This is an independent compilation, not affiliated with or endorsed by the PC, OECD or ILO.</p>
+</main>
+
+<script>
+(() => {
+  const $ = s => document.querySelector(s);
+  const css = v => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+  const NS = 'http://www.w3.org/2000/svg';
+  const el = (tag, attrs = {}, parent) => { const e = document.createElementNS(NS, tag); for (const k in attrs) e.setAttribute(k, attrs[k]); if (parent) parent.appendChild(e); return e; };
+  const fmt = (v, d = 1) => v == null ? '–' : (+v).toFixed(d);
+  const sgn = (v, d = 1) => v == null ? '–' : (v > 0 ? '+' : v < 0 ? '−' : '') + Math.abs(v).toFixed(d);
+
+  // theme toggle (per-viewer convenience only)
+  const root = document.documentElement;
+  try { const t = localStorage.getItem('theme'); if (t) root.dataset.theme = t; } catch (e) {}
+  const isDark = () => root.dataset.theme ? root.dataset.theme === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
+  $('#themeBtn').textContent = isDark() ? 'Light mode' : 'Dark mode';
+  $('#themeBtn').onclick = () => {
+    root.dataset.theme = isDark() ? 'light' : 'dark';
+    try { localStorage.setItem('theme', root.dataset.theme); } catch (e) {}
+    $('#themeBtn').textContent = isDark() ? 'Light mode' : 'Dark mode';
+    renderAll();
+  };
+  matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => renderAll());
+
+  function niceTicks(min, max, n = 5) {
+    const span = max - min, step0 = span / n, mag = Math.pow(10, Math.floor(Math.log10(step0)));
+    const step = [1, 2, 2.5, 5, 10].map(m => m * mag).find(s => span / s <= n) || 10 * mag;
+    const out = []; for (let v = Math.ceil(min / step) * step; v <= max + 1e-9; v += step) out.push(+v.toFixed(10));
+    return out;
+  }
+  function tipFor(container) {
+    let t = container.querySelector('.tip');
+    if (!t) { t = document.createElement('div'); t.className = 'tip'; container.appendChild(t); }
+    return {
+      show(html, x, y) {
+        t.innerHTML = html; t.style.opacity = 1;
+        const w = t.offsetWidth, cw = container.clientWidth;
+        t.style.left = Math.max(0, Math.min(cw - w, x + 14)) + 'px';
+        t.style.top = Math.max(0, y - t.offsetHeight - 10) + 'px';
+      },
+      hide() { t.style.opacity = 0; }
+    };
+  }
+  function table(target, head, rows) {
+    target.innerHTML = '<table><thead><tr>' + head.map(h => `<th>${h}</th>`).join('') + '</tr></thead><tbody>' +
+      rows.map(r => '<tr>' + r.map(c => `<td>${c}</td>`).join('') + '</tr>').join('') + '</tbody></table>';
+  }
+  function legend(target, items, kind = 'line') {
+    target.innerHTML = items.map(it => `<span><i class="${it.dash ? 'dash' : kind === 'sq' ? 'sq' : ''}" style="background:${css(it.color) || it.color}"></i>${it.label}</span>`).join('');
+  }
+
+  // ---------- generic multi-line chart with crosshair ----------
+  function lineChart(box, { xs, series, yFmt, xLabel, refLines = [], endLabels = true, height = 340, xTickEvery }) {
+    box.innerHTML = '';
+    const W = Math.max(320, box.clientWidth), H = height;
+    const m = { t: 12, r: endLabels ? (W < 520 ? 70 : 110) : 16, b: 28, l: 40 };
+    const svg = el('svg', { viewBox: `0 0 ${W} ${H}`, role: 'img' }, box);
+    const all = series.flatMap(s => s.values.filter(v => v != null)).concat(refLines.map(r => r.y));
+    let lo = Math.min(...all), hi = Math.max(...all); const pad = (hi - lo) * 0.06; lo -= pad; hi += pad;
+    const ticks = niceTicks(lo, hi, 5); lo = Math.min(lo, ticks[0]); hi = Math.max(hi, ticks[ticks.length - 1]);
+    const X = i => m.l + (W - m.l - m.r) * i / (xs.length - 1);
+    const Y = v => m.t + (H - m.t - m.b) * (1 - (v - lo) / (hi - lo));
+    ticks.forEach(t => {
+      el('line', { x1: m.l, x2: W - m.r, y1: Y(t), y2: Y(t), stroke: css('--grid'), 'stroke-width': 1 }, svg);
+      el('text', { x: m.l - 6, y: Y(t) + 4, 'text-anchor': 'end' }, svg).textContent = yFmt(t);
+    });
+    el('line', { x1: m.l, x2: W - m.r, y1: H - m.b, y2: H - m.b, stroke: css('--axis'), 'stroke-width': 1 }, svg);
+    const every = xTickEvery || Math.ceil(xs.length / (W < 520 ? 4 : 8));
+    xs.forEach((x, i) => { if (i % every === 0) el('text', { x: X(i), y: H - m.b + 18, 'text-anchor': 'middle' }, svg).textContent = xLabel(x); });
+    refLines.forEach(r => {
+      el('line', { x1: m.l, x2: W - m.r, y1: Y(r.y), y2: Y(r.y), stroke: css('--ref'), 'stroke-width': 1.5, 'stroke-dasharray': '4 3' }, svg);
+      if (r.label) el('text', { x: m.l + 6, y: Y(r.y) - 6, class: 'lbl' }, svg).textContent = r.label;
+    });
+    series.forEach(s => {
+      let d = ''; s.values.forEach((v, i) => { if (v == null) return; d += (d ? 'L' : 'M') + X(i).toFixed(1) + ',' + Y(v).toFixed(1); });
+      el('path', { d, fill: 'none', stroke: css(s.color), 'stroke-width': s.width || 2, 'stroke-linejoin': 'round', 'stroke-linecap': 'round' }, svg);
+    });
+    if (endLabels) {
+      // end labels with simple collision avoidance
+      const labs = series.map(s => { const i = s.values.length - 1; return { s, y: Y(s.values[i]), v: s.values[i] }; }).sort((a, b) => a.y - b.y);
+      for (let i = 1; i < labs.length; i++) if (labs[i].y - labs[i - 1].y < 14) labs[i].y = labs[i - 1].y + 14;
+      labs.forEach(l => {
+        el('circle', { cx: X(xs.length - 1), cy: Y(l.v), r: 4, fill: css(l.s.color), stroke: css('--surface'), 'stroke-width': 2 }, svg);
+        el('text', { x: X(xs.length - 1) + 8, y: l.y + 4, class: l.s.strong ? 'lbl-strong' : 'lbl' }, svg).textContent = `${l.s.short || l.s.label} ${yFmt(l.v)}`;
+      });
+    }
+    // crosshair
+    const cross = el('line', { y1: m.t, y2: H - m.b, stroke: css('--axis'), 'stroke-width': 1, opacity: 0 }, svg);
+    const dots = series.map(s => el('circle', { r: 4, fill: css(s.color), stroke: css('--surface'), 'stroke-width': 2, opacity: 0 }, svg));
+    const hit = el('rect', { x: m.l, y: m.t, width: W - m.l - m.r, height: H - m.t - m.b, fill: 'transparent' }, svg);
+    const tip = tipFor(box);
+    const move = ev => {
+      const r = svg.getBoundingClientRect(), sx = (ev.clientX - r.left) * W / r.width;
+      const i = Math.max(0, Math.min(xs.length - 1, Math.round((sx - m.l) / (W - m.l - m.r) * (xs.length - 1))));
+      cross.setAttribute('x1', X(i)); cross.setAttribute('x2', X(i)); cross.setAttribute('opacity', 1);
+      series.forEach((s, k) => { const v = s.values[i]; if (v == null) { dots[k].setAttribute('opacity', 0); return; } dots[k].setAttribute('cx', X(i)); dots[k].setAttribute('cy', Y(v)); dots[k].setAttribute('opacity', 1); });
+      const rows = series.map(s => ({ s, v: s.values[i] })).filter(o => o.v != null).sort((a, b) => b.v - a.v)
+        .map(o => `<div class="row"><i style="background:${css(o.s.color)}"></i>${o.s.label}: <b>${yFmt(o.v)}</b></div>`).join('');
+      tip.show(`<div><b>${xLabel(xs[i], true)}</b></div>${rows}`, X(i) * r.width / W, ev.clientY - r.top);
+    };
+    hit.addEventListener('pointermove', move); hit.addEventListener('pointerdown', move);
+    hit.addEventListener('pointerleave', () => { tip.hide(); cross.setAttribute('opacity', 0); dots.forEach(d => d.setAttribute('opacity', 0)); });
+  }
+
+  // ---------- horizontal bars (single or grouped) ----------
+  function hBars(box, { cats, series, fmt: f, rowH = 30, rightCol, diverging, highlight }) {
+    box.innerHTML = '';
+    const W = Math.max(320, box.clientWidth), narrow = W < 520;
+    const labW = narrow ? 92 : 150, rc = rightCol ? (narrow ? 54 : 80) : 0;
+    const m = { t: 8, r: 46 + rc, b: 26, l: labW };
+    const H = m.t + m.b + cats.length * rowH;
+    const svg = el('svg', { viewBox: `0 0 ${W} ${H}`, role: 'img' }, box);
+    const vals = series.flatMap(s => s.values); let lo = Math.min(0, ...vals), hi = Math.max(0, ...vals);
+    const span0 = hi - lo; if (lo < 0) lo -= span0 * (narrow ? 0.16 : 0.1); hi += span0 * 0.04; // room for value labels
+    const ticks = niceTicks(lo, hi, narrow ? 4 : 6); lo = Math.min(lo, ticks[0]); hi = Math.max(hi, ticks[ticks.length - 1]);
+    const X = v => m.l + (W - m.l - m.r) * (v - lo) / (hi - lo);
+    ticks.forEach(t => {
+      el('line', { x1: X(t), x2: X(t), y1: m.t, y2: H - m.b, stroke: t === 0 ? css('--axis') : css('--grid'), 'stroke-width': 1 }, svg);
+      el('text', { x: X(t), y: H - m.b + 16, 'text-anchor': 'middle' }, svg).textContent = f(t, true);
+    });
+    const tip = tipFor(box);
+    const n = series.length, gap = 2, barH = Math.min(n === 1 ? 18 : 11, (rowH - 8 - gap * (n - 1)) / n);
+    cats.forEach((c, ci) => {
+      const y0 = m.t + ci * rowH + (rowH - (barH * n + gap * (n - 1))) / 2;
+      el('text', { x: m.l - 8, y: m.t + ci * rowH + rowH / 2 + 4, 'text-anchor': 'end', class: highlight && highlight(c) ? 'lbl-strong' : 'lbl' }, svg).textContent = c.short || c.label;
+      series.forEach((s, si) => {
+        const v = s.values[ci], x0 = X(Math.min(0, v)), w = Math.max(1, Math.abs(X(v) - X(0)));
+        const color = diverging ? (v >= 0 ? css('--pos') : css('--neg')) : css(s.color);
+        // 4px rounded data end, square at baseline
+        const y = y0 + si * (barH + gap), rr = Math.min(4, w / 2, barH / 2);
+        const d = v >= 0
+          ? `M${x0},${y}H${x0 + w - rr}Q${x0 + w},${y} ${x0 + w},${y + rr}V${y + barH - rr}Q${x0 + w},${y + barH} ${x0 + w - rr},${y + barH}H${x0}Z`
+          : `M${x0 + w},${y}H${x0 + rr}Q${x0},${y} ${x0},${y + rr}V${y + barH - rr}Q${x0},${y + barH} ${x0 + rr},${y + barH}H${x0 + w}Z`;
+        el('path', { d, fill: color }, svg);
+        if (n === 1 || narrow === false) {
+          const tx = v >= 0 ? X(v) + 4 : X(v) - 4;
+          el('text', { x: tx, y: y + barH / 2 + 4, 'text-anchor': v >= 0 ? 'start' : 'end', class: 'lbl' }, svg).textContent = f(v);
+        }
+      });
+      if (rightCol) el('text', { x: W - 4, y: m.t + ci * rowH + rowH / 2 + 4, 'text-anchor': 'end', class: 'lbl' }, svg).textContent = rightCol.fmt(c);
+      const hit = el('rect', { x: 0, y: m.t + ci * rowH, width: W, height: rowH, fill: 'transparent' }, svg);
+      const show = ev => {
+        const r = svg.getBoundingClientRect();
+        const rows = series.map(s => `<div class="row"><i style="background:${diverging ? (s.values[ci] >= 0 ? css('--pos') : css('--neg')) : css(s.color)}"></i>${s.label}: <b>${f(s.values[ci])}</b></div>`).join('');
+        tip.show(`<div><b>${c.label}</b></div>${rows}${rightCol ? `<div class="row">${rightCol.label}: <b>${rightCol.fmt(c)}</b></div>` : ''}`, ev.clientX - r.left, ev.clientY - r.top);
+        hit.setAttribute('fill', css('--grid')); hit.setAttribute('fill-opacity', 0.35);
+      };
+      hit.addEventListener('pointermove', show); hit.addEventListener('pointerdown', show);
+      hit.addEventListener('pointerleave', () => { tip.hide(); hit.setAttribute('fill', 'transparent'); });
+    });
+    if (rightCol) el('text', { x: W - 4, y: H - m.b + 16, 'text-anchor': 'end', class: 'lbl-strong' }, svg).textContent = rightCol.head || '';
+  }
+
+  let D, seaSet = 'sea';
+  const qLabel = (d, long) => { const [y, mo] = d.split('-'); const q = Math.ceil(+mo / 3); return long ? `${['Mar', 'Jun', 'Sep', 'Dec'][q - 1]} qtr ${y}` : y; };
+
+  function renderAll() {
+    if (!D) return;
+    const au = D.au;
+    // --- tiles
+    const S = c => D.summary.find(s => s.code === c && s.source === 'OECD');
+    const aus = S('AUS'), usa = S('USA');
+    const gapNow = D.oecd.series.AUS.pct_of_us.at(-1);
+    const nm = au.non_market_sector, nmNow = nm.at(-1);
+    $('#tiles').innerHTML = [
+      { k: 'Labour productivity, year to June 2026', v: sgn(au.headline.y_lp) + '%', s: `Output ${sgn(au.headline.y_output)}%, hours ${sgn(au.headline.y_hours)}%` },
+      { k: 'Average annual growth 2019–25', v: sgn(aus.g2019_2025, 2) + '%', s: `US ${sgn(usa.g2019_2025, 2)}%, OECD ${sgn(S('OECD').g2019_2025, 2)}%` },
+      { k: `Output per hour vs US, ${D.oecd.last_year}`, v: Math.round(gapNow) + '%', s: `Down from ${Math.round(D.oecd.series.AUS.pct_of_us[0])}% in 2000` },
+      { k: 'Non-market sector index', v: fmt(nmNow), s: 'Below its March 2007 level (Jun 2014 = 100)' },
+    ].map(t => `<div class="tile"><div class="k">${t.k}</div><div class="v">${t.v}</div><div class="s">${t.s}</div></div>`).join('');
+    document.querySelectorAll('.oecdLast').forEach(e => e.textContent = D.oecd.last_year);
+
+    // --- chart 1
+    const auSeries = [
+      { label: 'Market sector', short: 'Market', values: au.market_sector, color: '--s1' },
+      { label: 'Whole economy', short: 'Whole', values: au.whole_economy, color: '--s2', strong: true },
+      { label: 'Non-market sector', short: 'Non-market', values: au.non_market_sector, color: '--s3' },
+    ];
+    legend($('#lgAu'), [...auSeries.map(s => ({ label: s.label, color: s.color })), { label: '2015–19 average (whole economy)', color: '--ref', dash: true }]);
+    lineChart($('#chAu'), { xs: au.quarters, series: auSeries, yFmt: v => fmt(v, v % 1 && Math.abs(v) < 1000 ? 1 : 0).replace(/\.0$/, ''), xLabel: qLabel,
+      refLines: [{ y: au.avg_2015_2019.whole_economy }], xTickEvery: 8 });
+    table($('#tbAu'), ['Quarter', 'Whole economy', 'Market', 'Non-market'],
+      au.quarters.map((q, i) => [qLabel(q, true), fmt(au.whole_economy[i]), fmt(au.market_sector[i]), fmt(au.non_market_sector[i])]).reverse());
+
+    // --- industry
+    const ind = [...au.industry_mfp].sort((a, b) => b.value - a.value);
+    hBars($('#chInd'), { cats: ind.map(d => ({ label: d.industry })), series: [{ label: 'Cumulative MFP growth', values: ind.map(d => d.value) }],
+      fmt: (v, axis) => (axis ? fmt(v, 0) : sgn(v, 0)) + '%', diverging: true, rowH: 26 });
+    table($('#tbInd'), ['Industry', 'Cumulative MFP growth, %'], ind.map(d => [d.industry, sgn(d.value, 0)]));
+
+    // --- gap vs US
+    const gapCodes = [['AUS', 'Australia', '--s1', true], ['CAN', 'Canada', '--s2'], ['EU27_2020', 'EU-27', '--s3'], ['DEU', 'Germany', '--s4'], ['GBR', 'UK', '--s5'], ['JPN', 'Japan', '--s6']];
+    const yrs = D.oecd.series.USA.years;
+    const gapSeries = gapCodes.map(([c, l, col, strong]) => ({ label: l, values: yrs.map(y => { const s = D.oecd.series[c]; const i = s.years.indexOf(y); return i < 0 ? null : s.pct_of_us[i]; }), color: col, strong, width: strong ? 2.5 : 2 }));
+    legend($('#lgGap'), [...gapSeries.map(s => ({ label: s.label, color: s.color })), { label: 'United States = 100', color: '--ref', dash: true }]);
+    lineChart($('#chGap'), { xs: yrs.map(String), series: gapSeries, yFmt: v => Math.round(v) + '%', xLabel: (y) => y, refLines: [{ y: 100 }], xTickEvery: 5, height: 360 });
+    table($('#tbGap'), ['Year', ...gapSeries.map(s => s.label)], yrs.map((y, i) => [y, ...gapSeries.map(s => fmt(s.values[i]))]).reverse());
+
+    // --- growth before/after
+    const gr = D.summary.filter(s => s.source === 'OECD').sort((a, b) => b.g2019_2025 - a.g2019_2025);
+    const shortName = { 'European Union (27)': 'EU-27', 'United States': 'US', 'United Kingdom': 'UK', 'OECD total': 'OECD' };
+    const grS = [{ label: '2014–19', values: gr.map(s => s.g2014_2019), color: '--s1' }, { label: '2019–25', values: gr.map(s => s.g2019_2025), color: '--s2' }];
+    legend($('#lgGr'), grS.map(s => ({ label: s.label, color: s.color })), 'sq');
+    hBars($('#chGr'), { cats: gr.map(s => ({ label: s.country, short: shortName[s.country] || s.country, code: s.code })), series: grS,
+      fmt: (v, axis) => (axis ? fmt(v, 1) : sgn(v, 2)) + '%', rowH: 32, highlight: c => c.code === 'AUS' });
+    table($('#tbGr'), ['Country', '2005–14', '2014–19', '2019–25', `GDP/hr ${D.oecd.last_year} (US$)`], gr.map(s => [s.country, sgn(s.g2005_2014, 2), sgn(s.g2014_2019, 2), sgn(s.g2019_2025, 2), fmt(s.level_2025, 1)]));
+
+    // --- SEA
+    const ilo = D.summary.filter(s => s.source === 'ILO');
+    const ausL = ilo.find(s => s.code === 'AUS').level_2025;
+    const setCodes = seaSet === 'sea' ? ['AUS', 'SGP', 'BRN', 'MYS', 'THA', 'IDN', 'VNM', 'PHL', 'LAO', 'KHM', 'MMR']
+      : ['AUS', 'SGP', 'BRN', 'JPN', 'KOR', 'MYS', 'CHN', 'THA', 'IDN', 'VNM', 'PHL', 'IND', 'LAO', 'KHM', 'MMR'];
+    const sea = ilo.filter(s => setCodes.includes(s.code)).sort((a, b) => b.level_2025 - a.level_2025);
+    const seaShort = { 'Brunei Darussalam': 'Brunei' };
+    hBars($('#chSea'), { cats: sea.map(s => ({ label: s.country, short: seaShort[s.country] || s.country, code: s.code, g: s.g2019_2025 })),
+      series: [{ label: '% of Australia', values: sea.map(s => 100 * s.level_2025 / ausL), color: '--s1' }],
+      fmt: v => Math.round(v) + '%', rowH: 28, highlight: c => c.code === 'AUS',
+      rightCol: { label: 'Growth 2019–25', head: '2019–25', fmt: c => sgn(c.g, 1) + '%/yr' } });
+    table($('#tbSea'), ['Country', 'GDP/hr 2025 (2021 PPP $)', '% of Australia', '2014–19 growth', '2019–25 growth'],
+      sea.map(s => [s.country, fmt(s.level_2025, 2), fmt(100 * s.level_2025 / ausL, 0), sgn(s.g2014_2019, 2), sgn(s.g2019_2025, 2)]));
+  }
+
+  document.querySelectorAll('.seg button').forEach(b => b.onclick = () => {
+    seaSet = b.dataset.set; document.querySelectorAll('.seg button').forEach(x => x.setAttribute('aria-pressed', x === b)); renderAll();
+  });
+  let rt; addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(renderAll, 120); });
+
+  fetch('data/productivity.json').then(r => r.json()).then(d => { D = d; $('#built').textContent = d.built; renderAll(); })
+    .catch(() => { $('#tiles').innerHTML = '<p>Could not load <code>data/productivity.json</code>. If you opened this file directly from disk, serve the folder instead, e.g. <code>python3 -m http.server</code>.</p>'; });
+})();
+</script>
+</body>
+</html>

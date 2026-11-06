@@ -1,0 +1,115 @@
+source,country_code,country,region,period,avg_annual_growth_pct
+OECD,AUS,Australia,Australia & NZ,2005-2014,1.33
+OECD,AUS,Australia,Australia & NZ,2014-2019,0.74
+OECD,AUS,Australia,Australia & NZ,2019-2025,0.1
+OECD,USA,United States,North America,2005-2014,1.23
+OECD,USA,United States,North America,2014-2019,1.14
+OECD,USA,United States,North America,2019-2025,1.88
+OECD,CAN,Canada,North America,2005-2014,0.87
+OECD,CAN,Canada,North America,2014-2019,0.45
+OECD,CAN,Canada,North America,2019-2025,0.44
+OECD,EU27_2020,European Union (27),Europe,2005-2014,0.89
+OECD,EU27_2020,European Union (27),Europe,2014-2019,1.01
+OECD,EU27_2020,European Union (27),Europe,2019-2025,0.53
+OECD,DEU,Germany,Europe,2005-2014,0.72
+OECD,DEU,Germany,Europe,2014-2019,1.0
+OECD,DEU,Germany,Europe,2019-2025,0.27
+OECD,FRA,France,Europe,2005-2014,0.69
+OECD,FRA,France,Europe,2014-2019,0.67
+OECD,FRA,France,Europe,2019-2025,-0.14
+OECD,GBR,United Kingdom,Europe,2005-2014,0.39
+OECD,GBR,United Kingdom,Europe,2014-2019,0.72
+OECD,GBR,United Kingdom,Europe,2019-2025,0.3
+OECD,ITA,Italy,Europe,2005-2014,0.01
+OECD,ITA,Italy,Europe,2014-2019,0.08
+OECD,ITA,Italy,Europe,2019-2025,-0.26
+OECD,ESP,Spain,Europe,2005-2014,1.32
+OECD,ESP,Spain,Europe,2014-2019,0.46
+OECD,ESP,Spain,Europe,2019-2025,0.42
+OECD,NLD,Netherlands,Europe,2005-2014,0.61
+OECD,NLD,Netherlands,Europe,2014-2019,0.2
+OECD,NLD,Netherlands,Europe,2019-2025,0.45
+OECD,NZL,New Zealand,Australia & NZ,2005-2014,1.53
+OECD,NZL,New Zealand,Australia & NZ,2014-2019,0.85
+OECD,NZL,New Zealand,Australia & NZ,2019-2025,0.97
+OECD,JPN,Japan,North Asia,2005-2014,0.81
+OECD,JPN,Japan,North Asia,2014-2019,1.03
+OECD,JPN,Japan,North Asia,2019-2025,0.64
+OECD,KOR,Korea,North Asia,2005-2014,4.69
+OECD,KOR,Korea,North Asia,2014-2019,3.16
+OECD,KOR,Korea,North Asia,2019-2025,2.16
+OECD,OECD,OECD total,Aggregate,2005-2014,1.14
+OECD,OECD,OECD total,Aggregate,2014-2019,1.28
+OECD,OECD,OECD total,Aggregate,2019-2025,1.34
+ILO,AUS,Australia,Australia & NZ,2005-2014,1.42
+ILO,AUS,Australia,Australia & NZ,2014-2019,0.48
+ILO,AUS,Australia,Australia & NZ,2019-2025,0.84
+ILO,USA,United States,North America,2005-2014,1.02
+ILO,USA,United States,North America,2014-2019,0.63
+ILO,USA,United States,North America,2019-2025,2.3
+ILO,CAN,Canada,North America,2005-2014,1.09
+ILO,CAN,Canada,North America,2014-2019,0.51
+ILO,CAN,Canada,North America,2019-2025,0.9
+ILO,DEU,Germany,Europe,2005-2014,1.04
+ILO,DEU,Germany,Europe,2014-2019,0.97
+ILO,DEU,Germany,Europe,2019-2025,0.78
+ILO,FRA,France,Europe,2005-2014,0.89
+ILO,FRA,France,Europe,2014-2019,1.06
+ILO,FRA,France,Europe,2019-2025,0.09
+ILO,GBR,United Kingdom,Europe,2005-2014,0.4
+ILO,GBR,United Kingdom,Europe,2014-2019,1.49
+ILO,GBR,United Kingdom,Europe,2019-2025,-0.18
+ILO,ITA,Italy,Europe,2005-2014,0.14
+ILO,ITA,Italy,Europe,2014-2019,-0.45
+ILO,ITA,Italy,Europe,2019-2025,0.45
+ILO,ESP,Spain,Europe,2005-2014,1.39
+ILO,ESP,Spain,Europe,2014-2019,0.61
+ILO,ESP,Spain,Europe,2019-2025,1.27
+ILO,NLD,Netherlands,Europe,2005-2014,0.88
+ILO,NLD,Netherlands,Europe,2014-2019,0.5
+ILO,NLD,Netherlands,Europe,2019-2025,1.01
+ILO,NZL,New Zealand,Australia & NZ,2005-2014,1.05
+ILO,NZL,New Zealand,Australia & NZ,2014-2019,-0.04
+ILO,NZL,New Zealand,Australia & NZ,2019-2025,0.93
+ILO,JPN,Japan,North Asia,2005-2014,0.71
+ILO,JPN,Japan,North Asia,2014-2019,0.73
+ILO,JPN,Japan,North Asia,2019-2025,0.47
+ILO,KOR,Korea,North Asia,2005-2014,3.3
+ILO,KOR,Korea,North Asia,2014-2019,3.29
+ILO,KOR,Korea,North Asia,2019-2025,2.25
+ILO,CHN,China,North Asia,2005-2014,9.71
+ILO,CHN,China,North Asia,2014-2019,7.42
+ILO,CHN,China,North Asia,2019-2025,5.4
+ILO,IND,India,South Asia,2005-2014,5.12
+ILO,IND,India,South Asia,2014-2019,4.49
+ILO,IND,India,South Asia,2019-2025,3.95
+ILO,SGP,Singapore,Southeast Asia,2005-2014,2.24
+ILO,SGP,Singapore,Southeast Asia,2014-2019,1.81
+ILO,SGP,Singapore,Southeast Asia,2019-2025,2.11
+ILO,BRN,Brunei Darussalam,Southeast Asia,2005-2014,-1.91
+ILO,BRN,Brunei Darussalam,Southeast Asia,2014-2019,-1.15
+ILO,BRN,Brunei Darussalam,Southeast Asia,2019-2025,0.06
+ILO,MYS,Malaysia,Southeast Asia,2005-2014,1.61
+ILO,MYS,Malaysia,Southeast Asia,2014-2019,2.97
+ILO,MYS,Malaysia,Southeast Asia,2019-2025,1.54
+ILO,THA,Thailand,Southeast Asia,2005-2014,3.24
+ILO,THA,Thailand,Southeast Asia,2014-2019,4.11
+ILO,THA,Thailand,Southeast Asia,2019-2025,0.42
+ILO,IDN,Indonesia,Southeast Asia,2005-2014,3.43
+ILO,IDN,Indonesia,Southeast Asia,2014-2019,3.26
+ILO,IDN,Indonesia,Southeast Asia,2019-2025,2.62
+ILO,VNM,Viet Nam,Southeast Asia,2005-2014,4.45
+ILO,VNM,Viet Nam,Southeast Asia,2014-2019,6.61
+ILO,VNM,Viet Nam,Southeast Asia,2019-2025,4.25
+ILO,PHL,Philippines,Southeast Asia,2005-2014,2.98
+ILO,PHL,Philippines,Southeast Asia,2014-2019,4.25
+ILO,PHL,Philippines,Southeast Asia,2019-2025,1.61
+ILO,LAO,Lao PDR,Southeast Asia,2005-2014,5.44
+ILO,LAO,Lao PDR,Southeast Asia,2014-2019,4.19
+ILO,LAO,Lao PDR,Southeast Asia,2019-2025,-0.69
+ILO,KHM,Cambodia,Southeast Asia,2005-2014,4.67
+ILO,KHM,Cambodia,Southeast Asia,2014-2019,5.76
+ILO,KHM,Cambodia,Southeast Asia,2019-2025,1.3
+ILO,MMR,Myanmar,Southeast Asia,2005-2014,8.3
+ILO,MMR,Myanmar,Southeast Asia,2014-2019,8.52
+ILO,MMR,Myanmar,Southeast Asia,2019-2025,-0.97
