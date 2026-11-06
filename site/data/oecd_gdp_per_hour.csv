@@ -1,0 +1,365 @@
+country_code,country,region,year,gdp_per_hour_usd_ppp_2020,pct_of_us
+AUS,Australia,Australia & NZ,2000,53.957,94.91
+AUS,Australia,Australia & NZ,2001,55.986,96.16
+AUS,Australia,Australia & NZ,2002,56.49,94.15
+AUS,Australia,Australia & NZ,2003,58.059,93.65
+AUS,Australia,Australia & NZ,2004,58.238,91.65
+AUS,Australia,Australia & NZ,2005,58.718,90.58
+AUS,Australia,Australia & NZ,2006,59.175,90.35
+AUS,Australia,Australia & NZ,2007,59.471,89.91
+AUS,Australia,Australia & NZ,2008,60.038,89.53
+AUS,Australia,Australia & NZ,2009,61.355,88.28
+AUS,Australia,Australia & NZ,2010,61.11,85.84
+AUS,Australia,Australia & NZ,2011,62.732,88.22
+AUS,Australia,Australia & NZ,2012,64.017,89.58
+AUS,Australia,Australia & NZ,2013,65.32,90.98
+AUS,Australia,Australia & NZ,2014,66.15,91.43
+AUS,Australia,Australia & NZ,2015,66.776,91.23
+AUS,Australia,Australia & NZ,2016,67.246,91.26
+AUS,Australia,Australia & NZ,2017,67.449,90.58
+AUS,Australia,Australia & NZ,2018,67.552,89.74
+AUS,Australia,Australia & NZ,2019,68.619,89.61
+AUS,Australia,Australia & NZ,2020,69.794,87.18
+AUS,Australia,Australia & NZ,2021,70.868,86.93
+AUS,Australia,Australia & NZ,2022,68.256,84.16
+AUS,Australia,Australia & NZ,2023,68.309,83.03
+AUS,Australia,Australia & NZ,2024,67.935,80.76
+AUS,Australia,Australia & NZ,2025,69.029,80.64
+USA,United States,North America,2000,56.85,100.0
+USA,United States,North America,2001,58.219,100.0
+USA,United States,North America,2002,59.998,100.0
+USA,United States,North America,2003,61.996,100.0
+USA,United States,North America,2004,63.544,100.0
+USA,United States,North America,2005,64.823,100.0
+USA,United States,North America,2006,65.493,100.0
+USA,United States,North America,2007,66.144,100.0
+USA,United States,North America,2008,67.057,100.0
+USA,United States,North America,2009,69.5,100.0
+USA,United States,North America,2010,71.191,100.0
+USA,United States,North America,2011,71.11,100.0
+USA,United States,North America,2012,71.466,100.0
+USA,United States,North America,2013,71.799,100.0
+USA,United States,North America,2014,72.353,100.0
+USA,United States,North America,2015,73.199,100.0
+USA,United States,North America,2016,73.685,100.0
+USA,United States,North America,2017,74.465,100.0
+USA,United States,North America,2018,75.277,100.0
+USA,United States,North America,2019,76.572,100.0
+USA,United States,North America,2020,80.056,100.0
+USA,United States,North America,2021,81.52,100.0
+USA,United States,North America,2022,81.101,100.0
+USA,United States,North America,2023,82.269,100.0
+USA,United States,North America,2024,84.115,100.0
+USA,United States,North America,2025,85.602,100.0
+CAN,Canada,North America,2000,49.51,87.09
+CAN,Canada,North America,2001,50.348,86.48
+CAN,Canada,North America,2002,51.15,85.25
+CAN,Canada,North America,2003,51.262,82.69
+CAN,Canada,North America,2004,51.691,81.35
+CAN,Canada,North America,2005,52.839,81.51
+CAN,Canada,North America,2006,53.506,81.7
+CAN,Canada,North America,2007,53.521,80.92
+CAN,Canada,North America,2008,53.398,79.63
+CAN,Canada,North America,2009,53.579,77.09
+CAN,Canada,North America,2010,53.897,75.71
+CAN,Canada,North America,2011,54.829,77.1
+CAN,Canada,North America,2012,54.779,76.65
+CAN,Canada,North America,2013,55.534,77.35
+CAN,Canada,North America,2014,57.114,78.94
+CAN,Canada,North America,2015,56.943,77.79
+CAN,Canada,North America,2016,57.256,77.7
+CAN,Canada,North America,2017,58.064,77.98
+CAN,Canada,North America,2018,58.223,77.34
+CAN,Canada,North America,2019,58.407,76.28
+CAN,Canada,North America,2020,62.914,78.59
+CAN,Canada,North America,2021,60.376,74.06
+CAN,Canada,North America,2022,60.245,74.28
+CAN,Canada,North America,2023,59.395,72.2
+CAN,Canada,North America,2024,59.396,70.61
+CAN,Canada,North America,2025,59.98,70.07
+EU27_2020,European Union (27),Europe,2000,50.637,89.07
+EU27_2020,European Union (27),Europe,2001,51.654,88.72
+EU27_2020,European Union (27),Europe,2002,52.671,87.79
+EU27_2020,European Union (27),Europe,2003,53.199,85.81
+EU27_2020,European Union (27),Europe,2004,54.061,85.08
+EU27_2020,European Union (27),Europe,2005,54.718,84.41
+EU27_2020,European Union (27),Europe,2006,55.658,84.98
+EU27_2020,European Union (27),Europe,2007,56.165,84.91
+EU27_2020,European Union (27),Europe,2008,56.012,83.53
+EU27_2020,European Union (27),Europe,2009,55.386,79.69
+EU27_2020,European Union (27),Europe,2010,56.97,80.02
+EU27_2020,European Union (27),Europe,2011,58.048,81.63
+EU27_2020,European Union (27),Europe,2012,58.316,81.6
+EU27_2020,European Union (27),Europe,2013,58.834,81.94
+EU27_2020,European Union (27),Europe,2014,59.259,81.9
+EU27_2020,European Union (27),Europe,2015,60.109,82.12
+EU27_2020,European Union (27),Europe,2016,60.316,81.86
+EU27_2020,European Union (27),Europe,2017,61.372,82.42
+EU27_2020,European Union (27),Europe,2018,61.822,82.13
+EU27_2020,European Union (27),Europe,2019,62.311,81.38
+EU27_2020,European Union (27),Europe,2020,63.157,78.89
+EU27_2020,European Union (27),Europe,2021,63.529,77.93
+EU27_2020,European Union (27),Europe,2022,63.777,78.64
+EU27_2020,European Union (27),Europe,2023,63.27,76.91
+EU27_2020,European Union (27),Europe,2024,63.459,75.44
+EU27_2020,European Union (27),Europe,2025,64.329,75.15
+DEU,Germany,Europe,2000,68.293,120.13
+DEU,Germany,Europe,2001,69.947,120.14
+DEU,Germany,Europe,2002,70.559,117.6
+DEU,Germany,Europe,2003,71.21,114.86
+DEU,Germany,Europe,2004,71.831,113.04
+DEU,Germany,Europe,2005,73.101,112.77
+DEU,Germany,Europe,2006,74.314,113.47
+DEU,Germany,Europe,2007,75.109,113.56
+DEU,Germany,Europe,2008,75.079,111.96
+DEU,Germany,Europe,2009,72.846,104.81
+DEU,Germany,Europe,2010,74.511,104.66
+DEU,Germany,Europe,2011,76.338,107.35
+DEU,Germany,Europe,2012,76.931,107.65
+DEU,Germany,Europe,2013,77.23,107.56
+DEU,Germany,Europe,2014,77.977,107.77
+DEU,Germany,Europe,2015,78.485,107.22
+DEU,Germany,Europe,2016,79.548,107.96
+DEU,Germany,Europe,2017,81.101,108.91
+DEU,Germany,Europe,2018,81.386,108.12
+DEU,Germany,Europe,2019,81.948,107.02
+DEU,Germany,Europe,2020,82.652,103.24
+DEU,Germany,Europe,2021,83.973,103.01
+DEU,Germany,Europe,2022,83.975,103.54
+DEU,Germany,Europe,2023,83.108,101.02
+DEU,Germany,Europe,2024,82.409,97.97
+DEU,Germany,Europe,2025,83.275,97.28
+FRA,France,Europe,2000,70.77,124.48
+FRA,France,Europe,2001,71.992,123.66
+FRA,France,Europe,2002,74.031,123.39
+FRA,France,Europe,2003,74.536,120.23
+FRA,France,Europe,2004,75.371,118.61
+FRA,France,Europe,2005,76.209,117.56
+FRA,France,Europe,2006,78.222,119.43
+FRA,France,Europe,2007,77.927,117.81
+FRA,France,Europe,2008,77.492,115.56
+FRA,France,Europe,2009,76.749,110.43
+FRA,France,Europe,2010,77.814,109.3
+FRA,France,Europe,2011,78.812,110.83
+FRA,France,Europe,2012,78.974,110.51
+FRA,France,Europe,2013,80.235,111.75
+FRA,France,Europe,2014,81.068,112.04
+FRA,France,Europe,2015,81.731,111.66
+FRA,France,Europe,2016,81.693,110.87
+FRA,France,Europe,2017,83.291,111.85
+FRA,France,Europe,2018,83.419,110.82
+FRA,France,Europe,2019,83.814,109.46
+FRA,France,Europe,2020,83.96,104.88
+FRA,France,Europe,2021,82.818,101.59
+FRA,France,Europe,2022,81.543,100.54
+FRA,France,Europe,2023,81.851,99.49
+FRA,France,Europe,2024,81.875,97.34
+FRA,France,Europe,2025,83.103,97.08
+GBR,United Kingdom,Europe,2000,61.258,107.75
+GBR,United Kingdom,Europe,2001,62.024,106.54
+GBR,United Kingdom,Europe,2002,63.34,105.57
+GBR,United Kingdom,Europe,2003,65.118,105.04
+GBR,United Kingdom,Europe,2004,65.908,103.72
+GBR,United Kingdom,Europe,2005,66.57,102.69
+GBR,United Kingdom,Europe,2006,67.692,103.36
+GBR,United Kingdom,Europe,2007,68.897,104.16
+GBR,United Kingdom,Europe,2008,69.012,102.92
+GBR,United Kingdom,Europe,2009,67.295,96.83
+GBR,United Kingdom,Europe,2010,69.058,97.0
+GBR,United Kingdom,Europe,2011,68.925,96.93
+GBR,United Kingdom,Europe,2012,68.515,95.87
+GBR,United Kingdom,Europe,2013,68.776,95.79
+GBR,United Kingdom,Europe,2014,68.918,95.25
+GBR,United Kingdom,Europe,2015,69.971,95.59
+GBR,United Kingdom,Europe,2016,69.739,94.65
+GBR,United Kingdom,Europe,2017,71.401,95.89
+GBR,United Kingdom,Europe,2018,71.63,95.16
+GBR,United Kingdom,Europe,2019,71.442,93.3
+GBR,United Kingdom,Europe,2020,73.205,91.44
+GBR,United Kingdom,Europe,2021,72.375,88.78
+GBR,United Kingdom,Europe,2022,73.518,90.65
+GBR,United Kingdom,Europe,2023,73.198,88.97
+GBR,United Kingdom,Europe,2024,72.745,86.48
+GBR,United Kingdom,Europe,2025,72.748,84.98
+ITA,Italy,Europe,2000,67.165,118.14
+ITA,Italy,Europe,2001,67.583,116.08
+ITA,Italy,Europe,2002,67.195,112.0
+ITA,Italy,Europe,2003,66.78,107.72
+ITA,Italy,Europe,2004,67.418,106.1
+ITA,Italy,Europe,2005,67.728,104.48
+ITA,Italy,Europe,2006,67.558,103.15
+ITA,Italy,Europe,2007,67.496,102.05
+ITA,Italy,Europe,2008,67.064,100.01
+ITA,Italy,Europe,2009,65.805,94.68
+ITA,Italy,Europe,2010,67.171,94.35
+ITA,Italy,Europe,2011,67.637,95.12
+ITA,Italy,Europe,2012,67.171,93.99
+ITA,Italy,Europe,2013,67.699,94.29
+ITA,Italy,Europe,2014,67.77,93.67
+ITA,Italy,Europe,2015,67.826,92.66
+ITA,Italy,Europe,2016,67.533,91.65
+ITA,Italy,Europe,2017,67.877,91.15
+ITA,Italy,Europe,2018,67.768,90.03
+ITA,Italy,Europe,2019,68.035,88.85
+ITA,Italy,Europe,2020,70.262,87.77
+ITA,Italy,Europe,2021,69.427,85.17
+ITA,Italy,Europe,2022,69.791,86.05
+ITA,Italy,Europe,2023,68.303,83.02
+ITA,Italy,Europe,2024,67.37,80.09
+ITA,Italy,Europe,2025,66.983,78.25
+ESP,Spain,Europe,2000,52.299,91.99
+ESP,Spain,Europe,2001,52.31,89.85
+ESP,Spain,Europe,2002,52.411,87.35
+ESP,Spain,Europe,2003,52.564,84.79
+ESP,Spain,Europe,2004,52.735,82.99
+ESP,Spain,Europe,2005,52.898,81.6
+ESP,Spain,Europe,2006,53.19,81.22
+ESP,Spain,Europe,2007,53.722,81.22
+ESP,Spain,Europe,2008,53.771,80.19
+ESP,Spain,Europe,2009,55.032,79.18
+ESP,Spain,Europe,2010,56.363,79.17
+ESP,Spain,Europe,2011,57.214,80.46
+ESP,Spain,Europe,2012,58.386,81.7
+ESP,Spain,Europe,2013,59.234,82.5
+ESP,Spain,Europe,2014,59.516,82.26
+ESP,Spain,Europe,2015,60.131,82.15
+ESP,Spain,Europe,2016,60.343,81.89
+ESP,Spain,Europe,2017,60.789,81.63
+ESP,Spain,Europe,2018,60.746,80.7
+ESP,Spain,Europe,2019,60.886,79.51
+ESP,Spain,Europe,2020,60.913,76.09
+ESP,Spain,Europe,2021,60.602,74.34
+ESP,Spain,Europe,2022,61.355,75.65
+ESP,Spain,Europe,2023,61.228,74.42
+ESP,Spain,Europe,2024,61.96,73.66
+ESP,Spain,Europe,2025,62.42,72.92
+NLD,Netherlands,Europe,2000,71.132,125.12
+NLD,Netherlands,Europe,2001,71.854,123.42
+NLD,Netherlands,Europe,2002,72.399,120.67
+NLD,Netherlands,Europe,2003,73.328,118.28
+NLD,Netherlands,Europe,2004,74.573,117.36
+NLD,Netherlands,Europe,2005,76.335,117.76
+NLD,Netherlands,Europe,2006,77.56,118.42
+NLD,Netherlands,Europe,2007,78.333,118.43
+NLD,Netherlands,Europe,2008,78.744,117.43
+NLD,Netherlands,Europe,2009,76.986,110.77
+NLD,Netherlands,Europe,2010,78.569,110.36
+NLD,Netherlands,Europe,2011,79.289,111.5
+NLD,Netherlands,Europe,2012,79.217,110.85
+NLD,Netherlands,Europe,2013,79.895,111.28
+NLD,Netherlands,Europe,2014,80.635,111.45
+NLD,Netherlands,Europe,2015,81.694,111.61
+NLD,Netherlands,Europe,2016,81.706,110.89
+NLD,Netherlands,Europe,2017,82.071,110.21
+NLD,Netherlands,Europe,2018,81.732,108.57
+NLD,Netherlands,Europe,2019,81.45,106.37
+NLD,Netherlands,Europe,2020,81.757,102.12
+NLD,Netherlands,Europe,2021,83.03,101.85
+NLD,Netherlands,Europe,2022,83.963,103.53
+NLD,Netherlands,Europe,2023,82.444,100.21
+NLD,Netherlands,Europe,2024,81.927,97.4
+NLD,Netherlands,Europe,2025,83.68,97.75
+NZL,New Zealand,Australia & NZ,2000,33.955,59.73
+NZL,New Zealand,Australia & NZ,2001,35.475,60.93
+NZL,New Zealand,Australia & NZ,2002,37.242,62.07
+NZL,New Zealand,Australia & NZ,2003,39.051,62.99
+NZL,New Zealand,Australia & NZ,2004,40.151,63.19
+NZL,New Zealand,Australia & NZ,2005,41.78,64.45
+NZL,New Zealand,Australia & NZ,2006,43.221,65.99
+NZL,New Zealand,Australia & NZ,2007,45.39,68.62
+NZL,New Zealand,Australia & NZ,2008,45.057,67.19
+NZL,New Zealand,Australia & NZ,2009,46.547,66.97
+NZL,New Zealand,Australia & NZ,2010,46.568,65.41
+NZL,New Zealand,Australia & NZ,2011,47.241,66.43
+NZL,New Zealand,Australia & NZ,2012,48.634,68.05
+NZL,New Zealand,Australia & NZ,2013,47.849,66.64
+NZL,New Zealand,Australia & NZ,2014,47.914,66.22
+NZL,New Zealand,Australia & NZ,2015,49.13,67.12
+NZL,New Zealand,Australia & NZ,2016,48.637,66.01
+NZL,New Zealand,Australia & NZ,2017,48.928,65.71
+NZL,New Zealand,Australia & NZ,2018,49.69,66.01
+NZL,New Zealand,Australia & NZ,2019,49.986,65.28
+NZL,New Zealand,Australia & NZ,2020,51.052,63.77
+NZL,New Zealand,Australia & NZ,2021,52.39,64.27
+NZL,New Zealand,Australia & NZ,2022,52.145,64.3
+NZL,New Zealand,Australia & NZ,2023,51.883,63.07
+NZL,New Zealand,Australia & NZ,2024,52.182,62.04
+NZL,New Zealand,Australia & NZ,2025,52.971,61.88
+JPN,Japan,North Asia,2000,41.559,73.1
+JPN,Japan,North Asia,2001,42.108,72.33
+JPN,Japan,North Asia,2002,42.902,71.51
+JPN,Japan,North Asia,2003,43.447,70.08
+JPN,Japan,North Asia,2004,44.46,69.97
+JPN,Japan,North Asia,2005,45.124,69.61
+JPN,Japan,North Asia,2006,45.274,69.13
+JPN,Japan,North Asia,2007,45.719,69.12
+JPN,Japan,North Asia,2008,45.613,68.02
+JPN,Japan,North Asia,2009,44.849,64.53
+JPN,Japan,North Asia,2010,46.253,64.97
+JPN,Japan,North Asia,2011,46.439,65.31
+JPN,Japan,North Asia,2012,47.075,65.87
+JPN,Japan,North Asia,2013,48.123,67.02
+JPN,Japan,North Asia,2014,48.501,67.03
+JPN,Japan,North Asia,2015,49.595,67.75
+JPN,Japan,North Asia,2016,49.68,67.42
+JPN,Japan,North Asia,2017,50.18,67.39
+JPN,Japan,North Asia,2018,50.545,67.15
+JPN,Japan,North Asia,2019,51.046,66.66
+JPN,Japan,North Asia,2020,50.545,63.14
+JPN,Japan,North Asia,2021,51.894,63.66
+JPN,Japan,North Asia,2022,52.432,64.65
+JPN,Japan,North Asia,2023,52.412,63.71
+JPN,Japan,North Asia,2024,51.754,61.53
+JPN,Japan,North Asia,2025,53.023,61.94
+KOR,Korea,North Asia,2000,19.523,34.34
+KOR,Korea,North Asia,2001,20.552,35.3
+KOR,Korea,North Asia,2002,22.458,37.43
+KOR,Korea,North Asia,2003,23.53,37.95
+KOR,Korea,North Asia,2004,25.081,39.47
+KOR,Korea,North Asia,2005,26.631,41.08
+KOR,Korea,North Asia,2006,28.087,42.89
+KOR,Korea,North Asia,2007,30.244,45.72
+KOR,Korea,North Asia,2008,32.374,48.28
+KOR,Korea,North Asia,2009,33.38,48.03
+KOR,Korea,North Asia,2010,35.943,50.49
+KOR,Korea,North Asia,2011,37.744,53.08
+KOR,Korea,North Asia,2012,38.346,53.66
+KOR,Korea,North Asia,2013,39.328,54.78
+KOR,Korea,North Asia,2014,40.229,55.6
+KOR,Korea,North Asia,2015,40.822,55.77
+KOR,Korea,North Asia,2016,42.031,57.04
+KOR,Korea,North Asia,2017,44.025,59.12
+KOR,Korea,North Asia,2018,45.849,60.91
+KOR,Korea,North Asia,2019,47.003,61.38
+KOR,Korea,North Asia,2020,48.509,60.59
+KOR,Korea,North Asia,2021,49.982,61.31
+KOR,Korea,North Asia,2022,50.116,61.79
+KOR,Korea,North Asia,2023,51.076,62.08
+KOR,Korea,North Asia,2024,52.003,61.82
+KOR,Korea,North Asia,2025,53.444,62.43
+OECD,OECD total,Aggregate,2000,46.662,82.08
+OECD,OECD total,Aggregate,2001,47.511,81.61
+OECD,OECD total,Aggregate,2002,48.567,80.95
+OECD,OECD total,Aggregate,2003,49.639,80.07
+OECD,OECD total,Aggregate,2004,50.808,79.96
+OECD,OECD total,Aggregate,2005,51.832,79.96
+OECD,OECD total,Aggregate,2006,52.644,80.38
+OECD,OECD total,Aggregate,2007,53.407,80.74
+OECD,OECD total,Aggregate,2008,53.692,80.07
+OECD,OECD total,Aggregate,2009,53.755,77.34
+OECD,OECD total,Aggregate,2010,55.153,77.47
+OECD,OECD total,Aggregate,2011,55.809,78.48
+OECD,OECD total,Aggregate,2012,56.18,78.61
+OECD,OECD total,Aggregate,2013,56.853,79.18
+OECD,OECD total,Aggregate,2014,57.419,79.36
+OECD,OECD total,Aggregate,2015,58.269,79.6
+OECD,OECD total,Aggregate,2016,58.656,79.6
+OECD,OECD total,Aggregate,2017,59.697,80.17
+OECD,OECD total,Aggregate,2018,60.392,80.23
+OECD,OECD total,Aggregate,2019,61.187,79.91
+OECD,OECD total,Aggregate,2020,63.31,79.08
+OECD,OECD total,Aggregate,2021,63.756,78.21
+OECD,OECD total,Aggregate,2022,63.96,78.86
+OECD,OECD total,Aggregate,2023,64.348,78.22
+OECD,OECD total,Aggregate,2024,65.09,77.38
+OECD,OECD total,Aggregate,2025,66.269,77.42

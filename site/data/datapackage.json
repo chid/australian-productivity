@@ -1,0 +1,75 @@
+{
+  "name": "australian-productivity-compared",
+  "title": "Australian productivity, compared",
+  "description": "Australian labour productivity from Productivity Commission chart data, with international comparisons of GDP per hour worked from the OECD Productivity Database and ILOSTAT modelled estimates.",
+  "created": "2026-11-07",
+  "licenses": [{ "name": "CC-BY-4.0", "path": "https://creativecommons.org/licenses/by/4.0/", "title": "Creative Commons Attribution 4.0" }],
+  "sources": [
+    { "title": "Productivity Commission, Productivity update – September 2026 (chart data)", "path": "https://www.pc.gov.au/ongoing/productivity-insights/update-september-2026" },
+    { "title": "Productivity Commission, Quarterly productivity bulletin – June 2026 (chart data)", "path": "https://www.pc.gov.au/ongoing/productivity-insights/bulletins/quarterly-bulletin-june-2026" },
+    { "title": "OECD Productivity Database, SDMX OECD.SDD.TPS,DSD_PDB@DF_PDB,2.0", "path": "https://sdmx.oecd.org/public/rest/data/OECD.SDD.TPS,DSD_PDB@DF_PDB,2.0/" },
+    { "title": "ILOSTAT, Output per hour worked (GDP constant 2021 international $ at PPP), ILO modelled estimates, SDMX ILO,DF_GDP_2HRW_NOC_NB,1.0", "path": "https://sdmx.ilo.org/rest/data/ILO,DF_GDP_2HRW_NOC_NB,1.0/" }
+  ],
+  "resources": [
+    {
+      "name": "au_labour_productivity_quarterly", "path": "au_labour_productivity_quarterly.csv", "format": "csv",
+      "description": "Quarterly labour productivity index (GDP per hour worked), seasonally adjusted, June 2014 = 100. Source: PC Sept 2026 update.",
+      "schema": { "fields": [
+        { "name": "quarter_end", "type": "date", "description": "First day of the quarter's final month (PC convention), e.g. 2026-06-01 = June quarter 2026" },
+        { "name": "quarter", "type": "string", "description": "Calendar quarter label, e.g. 2026-Q2" },
+        { "name": "sector", "type": "string", "constraints": { "enum": ["whole_economy", "market_sector", "non_market_sector"] } },
+        { "name": "index_jun2014_eq_100", "type": "number" } ] }
+    },
+    {
+      "name": "au_headline_change", "path": "au_headline_change.csv", "format": "csv",
+      "description": "Quarterly and through-the-year % change in output, hours worked and labour productivity (whole economy). Source: PC Sept 2026 update dashboard; periods re-labelled because the workbook's labels are stale.",
+      "schema": { "fields": [
+        { "name": "change_type", "type": "string", "constraints": { "enum": ["quarter", "year_to"] } },
+        { "name": "period", "type": "string" },
+        { "name": "measure", "type": "string" },
+        { "name": "pct_change", "type": "number" } ] }
+    },
+    {
+      "name": "au_industry_mfp_growth_2002_2024", "path": "au_industry_mfp_growth_2002_2024.csv", "format": "csv",
+      "description": "Cumulative multifactor productivity growth by market-sector industry, 2001-02 to 2023-24 (%). Source: PC June 2026 bulletin, Figure 1a.",
+      "schema": { "fields": [
+        { "name": "industry", "type": "string" },
+        { "name": "cumulative_mfp_growth_pct", "type": "number" } ] }
+    },
+    {
+      "name": "oecd_gdp_per_hour", "path": "oecd_gdp_per_hour.csv", "format": "csv",
+      "description": "GDP per hour worked, total economy, chain-linked volumes in constant 2020 PPP US$ (OECD measure GDPHRS, USD_PPP_H, LR). pct_of_us is the ratio to the US in the same year.",
+      "schema": { "fields": [
+        { "name": "country_code", "type": "string", "description": "ISO 3166 alpha-3 or OECD aggregate code" },
+        { "name": "country", "type": "string" },
+        { "name": "region", "type": "string" },
+        { "name": "year", "type": "year" },
+        { "name": "gdp_per_hour_usd_ppp_2020", "type": "number" },
+        { "name": "pct_of_us", "type": "number" } ] }
+    },
+    {
+      "name": "ilo_gdp_per_hour", "path": "ilo_gdp_per_hour.csv", "format": "csv",
+      "description": "Output per hour worked, GDP in constant 2021 international $ at PPP, ILO modelled estimates. Years after 2025 are projections (status=projection). Not directly comparable with the OECD series.",
+      "schema": { "fields": [
+        { "name": "country_code", "type": "string" },
+        { "name": "country", "type": "string" },
+        { "name": "region", "type": "string" },
+        { "name": "year", "type": "year" },
+        { "name": "gdp_per_hour_ppp_2021", "type": "number" },
+        { "name": "pct_of_australia", "type": "number" },
+        { "name": "status", "type": "string", "constraints": { "enum": ["estimate", "projection"] } } ] }
+    },
+    {
+      "name": "growth_summary", "path": "growth_summary.csv", "format": "csv",
+      "description": "Compound average annual growth of GDP per hour worked between the endpoint years of each period, by source.",
+      "schema": { "fields": [
+        { "name": "source", "type": "string", "constraints": { "enum": ["OECD", "ILO"] } },
+        { "name": "country_code", "type": "string" },
+        { "name": "country", "type": "string" },
+        { "name": "region", "type": "string" },
+        { "name": "period", "type": "string" },
+        { "name": "avg_annual_growth_pct", "type": "number" } ] }
+    },
+    { "name": "productivity", "path": "productivity.json", "format": "json", "description": "Compact bundle consumed by index.html." }
+  ]
+}
