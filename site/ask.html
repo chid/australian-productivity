@@ -1,0 +1,566 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ask the Data</title>
+<meta name="description" content="Query the Australian productivity datasets with SQL in your browser, or ask questions in plain English using your own Anthropic API key.">
+<style>
+:root {
+  color-scheme: light;
+  --page: #f9f9f7; --surface: #fcfcfb; --border: rgba(11,11,11,0.10);
+  --ink: #0b0b0b; --ink-2: #52514e; --muted: #898781;
+  --grid: #e1e0d9; --axis: #c3c2b7; --accent: #2a78d6; --neg: #e34948;
+  --link: #1c5cab; --code-bg: #f1f0ec;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --page: #0d0d0d; --surface: #1a1a19; --border: rgba(255,255,255,0.10);
+    --ink: #f0efec; --ink-2: #c3c2b7; --muted: #898781;
+    --grid: #2c2c2a; --axis: #383835; --accent: #3987e5; --neg: #e66767;
+    --link: #86b6ef; --code-bg: #232322;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --page: #0d0d0d; --surface: #1a1a19; --border: rgba(255,255,255,0.10);
+  --ink: #f0efec; --ink-2: #c3c2b7; --muted: #898781;
+  --grid: #2c2c2a; --axis: #383835; --accent: #3987e5; --neg: #e66767;
+  --link: #86b6ef; --code-bg: #232322;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--page); color: var(--ink);
+  font: 16px/1.55 system-ui, -apple-system, "Segoe UI", sans-serif; }
+main { max-width: 980px; margin: 0 auto; padding: 32px 16px 64px; }
+a { color: var(--link); }
+h1 { font-size: 30px; line-height: 1.2; margin: 0 0 8px; letter-spacing: -0.01em; }
+h2 { font-size: 21px; margin: 40px 0 6px; }
+p { margin: 8px 0; max-width: 70ch; }
+.lede { color: var(--ink-2); font-size: 18px; }
+.meta { color: var(--muted); font-size: 13px; }
+nav.top { font-size: 14px; margin-bottom: 20px; display: flex; gap: 16px; flex-wrap: wrap; align-items: center; }
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 16px; margin-top: 12px; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 8px 0; }
+.chips button { font: inherit; font-size: 13px; text-align: left; background: var(--page); color: var(--ink);
+  border: 1px solid var(--border); border-radius: 999px; padding: 6px 12px; cursor: pointer; }
+.chips button:hover { border-color: var(--accent); }
+textarea, input[type=password], input[type=text] { width: 100%; font: 14px/1.45 ui-monospace, SFMono-Regular, Menlo, monospace;
+  background: var(--page); color: var(--ink); border: 1px solid var(--border); border-radius: 8px; padding: 10px; }
+textarea.q { font-family: inherit; font-size: 15px; }
+.row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; margin-top: 8px; }
+.btn { font: inherit; font-size: 14px; font-weight: 600; background: var(--accent); color: #fff; border: 0;
+  border-radius: 8px; padding: 8px 16px; cursor: pointer; }
+.btn.secondary { background: transparent; color: var(--ink-2); border: 1px solid var(--border); font-weight: 500; }
+.btn:disabled { opacity: .5; cursor: default; }
+.status { font-size: 13px; color: var(--muted); }
+.err { color: var(--neg); font-size: 14px; white-space: pre-wrap; }
+.tablewrap { overflow-x: auto; margin-top: 10px; max-height: 420px; overflow-y: auto; border: 1px solid var(--border); border-radius: 8px; }
+table { border-collapse: collapse; font-size: 13px; width: 100%; font-variant-numeric: tabular-nums; }
+th, td { padding: 5px 10px; border-bottom: 1px solid var(--grid); text-align: left; white-space: nowrap; }
+th { position: sticky; top: 0; background: var(--surface); color: var(--ink-2); font-weight: 600; }
+td.num { text-align: right; }
+code { font-size: 13px; background: var(--code-bg); padding: 1px 5px; border-radius: 4px; }
+pre { background: var(--code-bg); padding: 10px; border-radius: 8px; overflow-x: auto; font-size: 13px; }
+details summary { cursor: pointer; color: var(--ink-2); font-size: 14px; }
+.schema h3 { font-size: 15px; margin: 14px 0 2px; }
+.schema ul { margin: 4px 0; padding-left: 18px; font-size: 14px; }
+.schema li { margin: 2px 0; }
+.msg { border-top: 1px solid var(--border); padding: 12px 0; }
+.msg:first-child { border-top: 0; }
+.msg .who { font-size: 12px; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); margin-bottom: 4px; }
+.msg.user .body { font-weight: 600; }
+.answer p, .answer li { max-width: 72ch; }
+.answer table { margin: 8px 0; width: auto; }
+.note { font-size: 13px; color: var(--ink-2); }
+.theme-toggle { margin-left: auto; font: inherit; font-size: 13px; background: var(--surface); color: var(--ink-2);
+  border: 1px solid var(--border); border-radius: 8px; padding: 4px 10px; cursor: pointer; }
+label.inline { font-size: 13px; color: var(--ink-2); display: inline-flex; gap: 6px; align-items: center; }
+@media (max-width: 560px) { h1 { font-size: 24px; } }
+</style>
+</head>
+<body>
+<main>
+  <nav class="top">
+    <a href="./">← Charts</a>
+    <a href="paper/">Working paper</a>
+    <a href="https://github.com/chid/australian-productivity">GitHub</a>
+    <button class="theme-toggle" id="themeBtn" type="button">Theme</button>
+  </nav>
+  <h1>Ask the data</h1>
+  <p class="lede">Query the seven datasets behind this site. Everything runs in your browser: the CSVs load into an in-browser SQL engine (DuckDB), so nothing is uploaded anywhere.</p>
+  <p class="meta" id="dbStatus">Loading the SQL engine…</p>
+
+  <h2>1. Common questions</h2>
+  <p>Each one runs a ready-made SQL query, with no key needed. The query is copied into the editor below so you can change it.</p>
+  <div class="chips" id="presets"></div>
+
+  <h2>2. Ask in plain English</h2>
+  <p>Claude reads the table descriptions, writes and runs SQL against the data in your browser, and explains the result. You need your own <a href="https://console.anthropic.com/settings/keys">Anthropic API key</a>, which is billed to your account.</p>
+  <div class="card">
+    <details id="keyBox">
+      <summary id="keySummary">Set your API key</summary>
+      <p class="note">The key is sent only to <code>api.anthropic.com</code>, straight from your browser. By default it is kept for this tab only; tick the box to remember it on this device. Don't use a key you share with others on a public computer.</p>
+      <input type="password" id="apiKey" placeholder="sk-ant-…" autocomplete="off" spellcheck="false">
+      <div class="row">
+        <label class="inline"><input type="checkbox" id="rememberKey"> Remember on this device</label>
+        <button class="btn secondary" id="saveKey" type="button">Save key</button>
+        <button class="btn secondary" id="forgetKey" type="button">Forget key</button>
+      </div>
+    </details>
+    <div id="chat" aria-live="polite"></div>
+    <textarea class="q" id="question" rows="2" placeholder="e.g. Which economies grew GDP per hour faster than Australia after 2019, and by how much?"></textarea>
+    <div class="row">
+      <button class="btn" id="askBtn" type="button">Ask</button>
+      <button class="btn secondary" id="newChat" type="button">New conversation</button>
+      <span class="status" id="askStatus"></span>
+    </div>
+    <div class="chips" id="aiExamples"></div>
+  </div>
+
+  <h2>3. SQL console</h2>
+  <p>DuckDB SQL. Each table has the same name as its CSV file. Press <kbd>Ctrl</kbd>/<kbd>⌘</kbd>+<kbd>Enter</kbd> to run.</p>
+  <div class="card">
+    <textarea id="sql" rows="6" spellcheck="false">SELECT country, avg_annual_growth_pct
+FROM growth_summary
+WHERE source = 'OECD' AND period = '2019-2025'
+ORDER BY avg_annual_growth_pct DESC;</textarea>
+    <div class="row">
+      <button class="btn" id="runBtn" type="button" disabled>Run</button>
+      <button class="btn secondary" id="csvBtn" type="button" disabled>Download result as CSV</button>
+      <span class="status" id="sqlStatus"></span>
+    </div>
+    <div id="sqlErr" class="err"></div>
+    <div id="sqlOut"></div>
+  </div>
+
+  <h2>4. Tables</h2>
+  <div class="card schema" id="schema"></div>
+
+  <h2>Caveats</h2>
+  <ul class="note">
+    <li>Never compare OECD and ILO levels directly: they use different price bases (2020 versus 2021 PPPs) and methods. Compare within one source.</li>
+    <li>ILO rows with <code>status = 'projection'</code> are modelled forecasts. Leave them out of any calculation.</li>
+    <li>Canada's 2020–24 growth-accounting averages are distorted by a 2021 outlier in the OECD file (MFP −13.0 points, capital deepening +8.9). Treat <code>mfp_contrib_2020_2024</code> and <code>capdeep_contrib_2020_2024</code> for Canada with caution.</li>
+    <li>AI answers can be wrong. Each answer shows the SQL it ran, so check it.</li>
+  </ul>
+  <p class="meta">Data: Productivity Commission, OECD Productivity Database, ILOSTAT, all CC BY 4.0. This is an independent compilation, not endorsed by any of them.</p>
+</main>
+
+<script type="module">
+import * as duckdb from 'https://cdn.jsdelivr.net/npm/@duckdb/duckdb-wasm@1.32.0/+esm';
+
+const $ = s => document.querySelector(s);
+const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+
+// ---------- theme (per-viewer convenience only) ----------
+const root = document.documentElement;
+try { const t = localStorage.getItem('theme'); if (t) root.dataset.theme = t; } catch (e) {}
+const isDark = () => root.dataset.theme ? root.dataset.theme === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
+const setThemeLabel = () => $('#themeBtn').textContent = isDark() ? 'Light mode' : 'Dark mode';
+setThemeLabel();
+$('#themeBtn').onclick = () => {
+  root.dataset.theme = isDark() ? 'light' : 'dark';
+  try { localStorage.setItem('theme', root.dataset.theme); } catch (e) {}
+  setThemeLabel();
+};
+
+// ---------- data dictionary (shown on the page and given to Claude) ----------
+const TABLES = {
+  au_labour_productivity_quarterly: {
+    about: 'Australian labour productivity index (GDP per hour worked), quarterly, seasonally adjusted. Source: Productivity Commission.',
+    cols: {
+      quarter_end: 'DATE: first day of the quarter\'s final month (e.g. 2026-06-01 for June quarter 2026)',
+      quarter: 'TEXT: calendar quarter label, e.g. 2026-Q2',
+      sector: "TEXT: 'whole_economy', 'market_sector' or 'non_market_sector'",
+      index_jun2014_eq_100: 'DOUBLE: index, June quarter 2014 = 100',
+    },
+  },
+  au_headline_change: {
+    about: 'Latest Australian headline changes in output, hours worked and labour productivity (PC dashboard).',
+    cols: {
+      change_type: "TEXT: 'quarter' (quarter-on-quarter) or 'year_to' (year to the quarter)",
+      period: 'TEXT: e.g. 2026-Q2',
+      measure: "TEXT: 'Output', 'Hours worked' or 'Labour productivity'",
+      pct_change: 'DOUBLE: % change',
+    },
+  },
+  au_industry_mfp_growth_2002_2024: {
+    about: 'Cumulative multifactor productivity growth by Australian market-sector industry, 2001-02 to 2023-24. Source: PC.',
+    cols: { industry: 'TEXT: industry name', cumulative_mfp_growth_pct: 'DOUBLE: cumulative % growth over the whole period' },
+  },
+  oecd_gdp_per_hour: {
+    about: 'GDP per hour worked, whole economy, annual 2000-2025, constant 2020 USD PPP. Source: OECD Productivity Database. Covers AUS, USA, CAN, EU27_2020, DEU, FRA, GBR, ITA, ESP, NLD, NZL, JPN, KOR, OECD.',
+    cols: {
+      country_code: 'TEXT: ISO alpha-3 or OECD aggregate code (EU27_2020, OECD)',
+      country: 'TEXT', region: 'TEXT: grouping used on the site', year: 'INTEGER',
+      gdp_per_hour_usd_ppp_2020: 'DOUBLE: USD per hour, 2020 PPPs, constant prices',
+      pct_of_us: 'DOUBLE: level as % of the United States in the same year',
+    },
+  },
+  ilo_gdp_per_hour: {
+    about: 'Output per hour worked, ILOSTAT modelled estimates, 2005 onwards, constant 2021 PPP international dollars. Covers ASEAN members plus AUS, USA, CAN, DEU, FRA, GBR, KOR, JPN, CHN, IND, NZL.',
+    cols: {
+      country_code: 'TEXT: ISO alpha-3', country: 'TEXT', region: 'TEXT', year: 'INTEGER',
+      gdp_per_hour_ppp_2021: 'DOUBLE: 2021 PPP dollars per hour',
+      pct_of_australia: 'DOUBLE: level as % of Australia in the same year',
+      status: "TEXT: 'estimate' or 'projection'. Exclude projections from calculations.",
+    },
+  },
+  growth_summary: {
+    about: 'Compound average annual growth in GDP per hour for three windows, from both OECD and ILO data.',
+    cols: {
+      source: "TEXT: 'OECD' or 'ILO'", country_code: 'TEXT', country: 'TEXT', region: 'TEXT',
+      period: "TEXT: '2005-2014', '2014-2019' or '2019-2025'",
+      avg_annual_growth_pct: 'DOUBLE: compound average annual % growth between endpoint years',
+    },
+  },
+  oecd_extra_metrics: {
+    about: 'One row per OECD economy: GDP per capita, hours per head and growth-accounting contributions. Source: OECD Productivity Database; derived figures are authors\' calculations.',
+    cols: {
+      code: 'TEXT: country code', country: 'TEXT',
+      gdp_pc_2025: 'DOUBLE: GDP per capita 2025, constant 2020 USD PPP',
+      gdp_pc_pct_us_2025: 'DOUBLE: GDP per capita as % of the US, 2025',
+      gdp_pc_growth_2019_2025: 'DOUBLE: compound average annual % growth in GDP per capita, 2019-2025',
+      hrs_pop_2019: 'DOUBLE: annual hours worked per head of population, 2019', hrs_pop_2025: 'DOUBLE: same, 2025',
+      hrs_pop_change_2019_2025: 'DOUBLE: % change in hours per head, 2019-2025',
+      mfp_contrib_2015_2019: 'DOUBLE: average annual MFP contribution to labour productivity growth, percentage points, 2015-2019',
+      mfp_contrib_2020_2024: 'DOUBLE: same, 2020-2024 (Canada distorted by a 2021 outlier)',
+      capdeep_contrib_2015_2019: 'DOUBLE: average annual capital-deepening contribution, percentage points, 2015-2019',
+      capdeep_contrib_2020_2024: 'DOUBLE: same, 2020-2024 (Canada distorted by a 2021 outlier)',
+    },
+  },
+};
+
+$('#schema').innerHTML = Object.entries(TABLES).map(([t, d]) =>
+  `<h3><code>${t}</code> <a class="meta" href="data/${t}.csv" download>CSV</a></h3><p class="note">${esc(d.about)}</p>
+   <ul>${Object.entries(d.cols).map(([c, v]) => `<li><code>${c}</code> ${esc(v)}</li>`).join('')}</ul>`).join('');
+
+// ---------- DuckDB ----------
+let conn = null;
+const dbReady = (async () => {
+  const bundle = await duckdb.selectBundle(duckdb.getJsDelivrBundles());
+  const workerUrl = URL.createObjectURL(new Blob([`importScripts("${bundle.mainWorker}");`], { type: 'text/javascript' }));
+  const db = new duckdb.AsyncDuckDB(new duckdb.VoidLogger(), new Worker(workerUrl));
+  await db.instantiate(bundle.mainModule, bundle.pthreadWorker);
+  URL.revokeObjectURL(workerUrl);
+  conn = await db.connect();
+  for (const t of Object.keys(TABLES)) {
+    const text = await (await fetch(`data/${t}.csv`)).text();
+    await db.registerFileText(`${t}.csv`, text);
+    await conn.query(`CREATE TABLE ${t} AS SELECT * FROM read_csv_auto('${t}.csv', header = true)`);
+  }
+})();
+dbReady.then(() => {
+  $('#dbStatus').textContent = `SQL engine ready: ${Object.keys(TABLES).length} tables loaded.`;
+  $('#runBtn').disabled = false;
+}).catch(e => { $('#dbStatus').textContent = 'Could not load the SQL engine: ' + e.message; });
+
+function cell(v) {
+  if (v === null || v === undefined) return '';
+  if (typeof v === 'bigint') return v.toString();
+  if (v instanceof Date) return v.toISOString().slice(0, 10);
+  if (typeof v === 'number') return Number.isInteger(v) ? String(v) : String(Math.round(v * 1000) / 1000);
+  return String(v);
+}
+async function runSQL(sql) {
+  await dbReady;
+  const res = await conn.query(sql);
+  const cols = res.schema.fields.map(f => f.name);
+  const types = res.schema.fields.map(f => String(f.type));
+  const rows = res.toArray().map(r => cols.map(c => {
+    const v = r[c];
+    // DuckDB DATE comes back as epoch ms
+    return types[cols.indexOf(c)].startsWith('Date') && typeof v === 'number' ? new Date(v) : v;
+  }));
+  return { cols, rows };
+}
+function tableHTML({ cols, rows }, limit = 1000) {
+  const shown = rows.slice(0, limit);
+  const num = cols.map((_, i) => shown.length && shown.every(r => r[i] === null || ['number', 'bigint'].includes(typeof r[i])));
+  return `<div class="tablewrap"><table><thead><tr>${cols.map(c => `<th>${esc(c)}</th>`).join('')}</tr></thead><tbody>` +
+    shown.map(r => `<tr>${r.map((v, i) => `<td class="${num[i] ? 'num' : ''}">${esc(cell(v))}</td>`).join('')}</tr>`).join('') +
+    `</tbody></table></div>` + (rows.length > limit ? `<p class="status">Showing ${limit} of ${rows.length} rows.</p>` : '');
+}
+function toCSV({ cols, rows }) {
+  const q = v => { const s = cell(v); return /[",\n]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s; };
+  return [cols.join(','), ...rows.map(r => r.map(q).join(','))].join('\n');
+}
+
+let lastResult = null;
+async function runConsole() {
+  $('#sqlErr').textContent = ''; $('#sqlStatus').textContent = 'Running…';
+  const t0 = performance.now();
+  try {
+    lastResult = await runSQL($('#sql').value);
+    $('#sqlOut').innerHTML = tableHTML(lastResult);
+    $('#sqlStatus').textContent = `${lastResult.rows.length} rows in ${Math.round(performance.now() - t0)} ms`;
+    $('#csvBtn').disabled = false;
+  } catch (e) {
+    $('#sqlErr').textContent = e.message; $('#sqlStatus').textContent = ''; $('#sqlOut').innerHTML = '';
+  }
+}
+$('#runBtn').onclick = runConsole;
+$('#sql').addEventListener('keydown', e => { if ((e.metaKey || e.ctrlKey) && e.key === 'Enter') { e.preventDefault(); runConsole(); } });
+$('#csvBtn').onclick = () => {
+  if (!lastResult) return;
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(new Blob([toCSV(lastResult)], { type: 'text/csv' }));
+  a.download = 'query_result.csv'; a.click(); URL.revokeObjectURL(a.href);
+};
+
+// ---------- preset questions (no key needed) ----------
+const PRESETS = [
+  ['Who grew GDP per hour fastest after 2019? (OECD)',
+`SELECT country, avg_annual_growth_pct
+FROM growth_summary
+WHERE source = 'OECD' AND period = '2019-2025'
+ORDER BY avg_annual_growth_pct DESC;`],
+  ['Did growth slow after 2019, compared with 2014–19?',
+`SELECT a.country,
+       a.avg_annual_growth_pct AS growth_2014_2019,
+       b.avg_annual_growth_pct AS growth_2019_2025,
+       round(b.avg_annual_growth_pct - a.avg_annual_growth_pct, 2) AS change_pts
+FROM growth_summary a
+JOIN growth_summary b USING (source, country_code)
+WHERE a.source = 'OECD' AND a.period = '2014-2019' AND b.period = '2019-2025'
+ORDER BY change_pts;`],
+  ["Australia's GDP per hour as a % of the US, by year",
+`SELECT year, round(gdp_per_hour_usd_ppp_2020, 1) AS usd_per_hour, pct_of_us
+FROM oecd_gdp_per_hour
+WHERE country_code = 'AUS'
+ORDER BY year;`],
+  ['Where did hours per head rise most since 2019?',
+`SELECT country, hrs_pop_2019, hrs_pop_2025, hrs_pop_change_2019_2025 AS pct_change,
+       gdp_pc_growth_2019_2025
+FROM oecd_extra_metrics
+ORDER BY hrs_pop_change_2019_2025 DESC;`],
+  ['MFP versus capital deepening, before and after 2020',
+`SELECT country,
+       mfp_contrib_2015_2019, capdeep_contrib_2015_2019,
+       mfp_contrib_2020_2024, capdeep_contrib_2020_2024
+FROM oecd_extra_metrics
+ORDER BY mfp_contrib_2020_2024 DESC;`],
+  ['Which Australian industries had the weakest MFP growth?',
+`SELECT industry, cumulative_mfp_growth_pct
+FROM au_industry_mfp_growth_2002_2024
+ORDER BY cumulative_mfp_growth_pct;`],
+  ['Australian productivity index, last 8 quarters by sector',
+`PIVOT (
+  SELECT quarter, sector, index_jun2014_eq_100
+  FROM au_labour_productivity_quarterly
+  WHERE quarter_end >= (SELECT max(quarter_end) FROM au_labour_productivity_quarterly) - INTERVAL 21 MONTH
+) ON sector USING first(index_jun2014_eq_100)
+ORDER BY quarter;`],
+  ['Southeast Asia: output per hour as a % of Australia (latest actual year, ILO)',
+`SELECT country, year, round(gdp_per_hour_ppp_2021, 1) AS ppp_per_hour, pct_of_australia
+FROM ilo_gdp_per_hour
+WHERE status = 'estimate' AND region = 'Southeast Asia'
+  AND year = (SELECT max(year) FROM ilo_gdp_per_hour WHERE status = 'estimate')
+ORDER BY pct_of_australia DESC;`],
+];
+$('#presets').innerHTML = PRESETS.map((p, i) => `<button type="button" data-i="${i}">${esc(p[0])}</button>`).join('');
+$('#presets').onclick = e => {
+  const b = e.target.closest('button'); if (!b) return;
+  $('#sql').value = PRESETS[b.dataset.i][1];
+  runConsole();
+  $('#sql').scrollIntoView({ behavior: 'smooth', block: 'center' });
+};
+
+// ---------- API key (session by default, device only on opt-in) ----------
+const KEY = 'anthropic_api_key';
+function loadKey() {
+  try { return sessionStorage.getItem(KEY) || localStorage.getItem(KEY) || ''; } catch (e) { return ''; }
+}
+let apiKey = loadKey();
+const keyLabel = () => $('#keySummary').textContent = apiKey ? 'API key set (change or forget)' : 'Set your API key';
+keyLabel();
+if (!apiKey) $('#keyBox').open = true;
+try { $('#rememberKey').checked = !!localStorage.getItem(KEY); } catch (e) {}
+$('#saveKey').onclick = () => {
+  apiKey = $('#apiKey').value.trim();
+  $('#apiKey').value = '';
+  try {
+    sessionStorage.setItem(KEY, apiKey);
+    if ($('#rememberKey').checked) localStorage.setItem(KEY, apiKey); else localStorage.removeItem(KEY);
+  } catch (e) {}
+  keyLabel(); $('#keyBox').open = false; client = null;
+};
+$('#forgetKey').onclick = () => {
+  apiKey = ''; client = null;
+  try { sessionStorage.removeItem(KEY); localStorage.removeItem(KEY); } catch (e) {}
+  keyLabel();
+};
+
+// ---------- Claude Q&A ----------
+const AI_EXAMPLES = [
+  'Is Australia\'s post-2019 slowdown unusual among advanced economies?',
+  'How much of Australia\'s GDP per capita growth since 2019 came from working more hours?',
+  'Which Southeast Asian economies are closest to Australia\'s productivity level, and how fast are they catching up?',
+  'Has the non-market sector dragged down the Australian index since 2019?',
+];
+$('#aiExamples').innerHTML = AI_EXAMPLES.map(q => `<button type="button">${esc(q)}</button>`).join('');
+$('#aiExamples').onclick = e => { const b = e.target.closest('button'); if (b) { $('#question').value = b.textContent; ask(); } };
+
+const schemaText = Object.entries(TABLES).map(([t, d]) =>
+  `TABLE ${t}: ${d.about}\n` + Object.entries(d.cols).map(([c, v]) => `  - ${c}: ${v}`).join('\n')).join('\n\n');
+
+const SYSTEM = `You answer questions about Australian and international productivity data by querying a DuckDB database that runs in the user's browser.
+
+${schemaText}
+
+How to work:
+- Use the run_sql tool to look up every number you report. Never state a figure from memory as if it came from the data. You may run several queries.
+- Use DuckDB SQL. Keep result sets small (aggregate, filter, LIMIT).
+- Never compare OECD and ILO levels directly: they use different PPP bases. Compare within one source, and say which source a figure comes from.
+- Exclude ILO rows where status = 'projection'.
+- Canada's 2020-2024 growth-accounting averages are distorted by a 2021 outlier in the OECD data; say so if you use them.
+- Growth figures are compound average annual % rates; growth-accounting contributions are percentage points.
+- If the data cannot answer the question, say so plainly and suggest what data would.
+
+Answer format: start with a one- or two-sentence direct answer, then the key figures (a short Markdown table if it helps), then any caveat. Be concise.`;
+
+const TOOLS = [{
+  name: 'run_sql',
+  description: 'Run one read-only DuckDB SQL query against the productivity tables and return up to 200 rows as CSV.',
+  strict: true,
+  input_schema: {
+    type: 'object',
+    properties: { sql: { type: 'string', description: 'A single DuckDB SQL SELECT statement.' } },
+    required: ['sql'],
+    additionalProperties: false,
+  },
+}];
+
+let client = null;
+let Anthropic = null;
+async function getClient() {
+  if (!apiKey) throw new Error('Set your Anthropic API key first.');
+  if (!Anthropic) Anthropic = (await import('https://cdn.jsdelivr.net/npm/@anthropic-ai/sdk@1.3.0/+esm')).default;
+  if (!client) client = new Anthropic({ apiKey, dangerouslyAllowBrowser: true });
+  return client;
+}
+
+let messages = [];
+const chat = $('#chat');
+$('#newChat').onclick = () => { messages = []; chat.innerHTML = ''; $('#askStatus').textContent = ''; };
+
+function md(src) {
+  // Small Markdown renderer: paragraphs, lists, tables, bold, italics, inline code. Input is escaped first.
+  const lines = esc(src).split('\n');
+  let out = '', i = 0;
+  const inline = s => s.replace(/`([^`]+)`/g, '<code>$1</code>').replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>').replace(/(^|\W)\*([^*]+)\*(?=\W|$)/g, '$1<em>$2</em>');
+  while (i < lines.length) {
+    const l = lines[i];
+    if (/^\s*\|/.test(l)) {
+      const rows = [];
+      while (i < lines.length && /^\s*\|/.test(lines[i])) rows.push(lines[i++]);
+      const cells = r => r.trim().replace(/^\||\|$/g, '').split('|').map(c => inline(c.trim()));
+      const body = rows.filter((r, k) => !(k === 1 && /^[\s|:-]+$/.test(r)));
+      out += `<div class="tablewrap"><table><thead><tr>${cells(body[0]).map(c => `<th>${c}</th>`).join('')}</tr></thead><tbody>` +
+        body.slice(1).map(r => `<tr>${cells(r).map(c => `<td>${c}</td>`).join('')}</tr>`).join('') + '</tbody></table></div>';
+    } else if (/^\s*([-*]|\d+\.)\s+/.test(l)) {
+      const ordered = /^\s*\d+\./.test(l); const items = [];
+      while (i < lines.length && /^\s*([-*]|\d+\.)\s+/.test(lines[i])) items.push(lines[i++].replace(/^\s*([-*]|\d+\.)\s+/, ''));
+      out += `<${ordered ? 'ol' : 'ul'}>${items.map(x => `<li>${inline(x)}</li>`).join('')}</${ordered ? 'ol' : 'ul'}>`;
+    } else if (/^#{1,4}\s/.test(l)) {
+      out += `<p><strong>${inline(l.replace(/^#+\s/, ''))}</strong></p>`; i++;
+    } else if (l.trim() === '') { i++; }
+    else {
+      const para = [];
+      while (i < lines.length && lines[i].trim() !== '' && !/^\s*(\||[-*]\s|\d+\.\s|#)/.test(lines[i])) para.push(lines[i++]);
+      out += `<p>${inline(para.join(' '))}</p>`;
+    }
+  }
+  return out;
+}
+
+function addMsg(who, html) {
+  const d = document.createElement('div');
+  d.className = 'msg ' + who;
+  d.innerHTML = `<div class="who">${who === 'user' ? 'You' : 'Claude'}</div><div class="body">${html}</div>`;
+  chat.appendChild(d);
+  return d.querySelector('.body');
+}
+
+async function execTool(block) {
+  const sql = block.input && typeof block.input.sql === 'string' ? block.input.sql : null;
+  if (!sql) return { content: 'Error: missing "sql" string.', is_error: true, sql: '' };
+  try {
+    const r = await runSQL(sql);
+    const csv = toCSV({ cols: r.cols, rows: r.rows.slice(0, 200) });
+    return { content: (r.rows.length > 200 ? `(${r.rows.length} rows; first 200 shown)\n` : `(${r.rows.length} rows)\n`) + csv, is_error: false, sql, result: r };
+  } catch (e) {
+    return { content: 'SQL error: ' + e.message, is_error: true, sql };
+  }
+}
+
+async function ask() {
+  const q = $('#question').value.trim();
+  if (!q) return;
+  let c;
+  try { c = await getClient(); } catch (e) { $('#askStatus').textContent = e.message; $('#keyBox').open = true; return; }
+  await dbReady;
+  $('#askBtn').disabled = true; $('#question').value = '';
+  addMsg('user', esc(q));
+  const body = addMsg('assistant', '');
+  const queriesEl = document.createElement('div'); body.appendChild(queriesEl);
+  const answerEl = document.createElement('div'); answerEl.className = 'answer'; body.appendChild(answerEl);
+  messages.push({ role: 'user', content: q });
+  let nQueries = 0;
+  try {
+    for (let step = 0; step < 10; step++) {
+      $('#askStatus').textContent = step === 0 ? 'Thinking…' : `Ran ${nQueries} quer${nQueries === 1 ? 'y' : 'ies'}, thinking…`;
+      const resp = await c.beta.messages.create({
+        model: 'claude-opus-5-5',
+        max_tokens: 16000,
+        system: SYSTEM,
+        tools: TOOLS,
+        output_config: { effort: 'medium' },
+        betas: ['server-side-fallback-2026-07-01'],
+        fallbacks: 'default',
+        messages,
+      });
+      messages.push({ role: 'assistant', content: resp.content });
+      const text = resp.content.filter(b => b.type === 'text').map(b => b.text).join('\n\n');
+      if (text) answerEl.innerHTML = md(text);
+
+      if (resp.stop_reason === 'refusal') { answerEl.innerHTML += '<p class="err">The model declined to answer this question.</p>'; break; }
+      if (resp.stop_reason === 'max_tokens') { answerEl.innerHTML += '<p class="err">The answer was cut off (output limit reached).</p>'; break; }
+      if (resp.stop_reason === 'pause_turn') continue;
+      if (resp.stop_reason !== 'tool_use') break;
+
+      const uses = resp.content.filter(b => b.type === 'tool_use');
+      const results = [];
+      for (const u of uses) {
+        const r = u.name === 'run_sql' ? await execTool(u) : { content: `Unknown tool ${u.name}`, is_error: true, sql: '' };
+        nQueries++;
+        const det = document.createElement('details');
+        det.innerHTML = `<summary>Query ${nQueries}${r.is_error ? ' (error)' : r.result ? `: ${r.result.rows.length} rows` : ''}</summary><pre>${esc(r.sql)}</pre>` +
+          (r.result ? tableHTML(r.result, 50) : `<p class="err">${esc(r.content)}</p>`);
+        queriesEl.appendChild(det);
+        results.push({ type: 'tool_result', tool_use_id: u.id, content: r.content, is_error: r.is_error });
+      }
+      messages.push({ role: 'user', content: results });
+      if (step === 9) answerEl.innerHTML += '<p class="err">Stopped after 10 steps.</p>';
+    }
+    $('#askStatus').textContent = nQueries ? `Done: ${nQueries} quer${nQueries === 1 ? 'y' : 'ies'} run in your browser.` : 'Done.';
+  } catch (e) {
+    let msg = e && e.message ? e.message : String(e);
+    if (Anthropic && e instanceof Anthropic.AuthenticationError) msg = 'The API key was rejected. Check it and set it again.';
+    else if (Anthropic && e instanceof Anthropic.RateLimitError) msg = 'Rate limited by the API. Wait a moment and try again.';
+    else if (Anthropic && e instanceof Anthropic.APIConnectionError) msg = 'Could not reach api.anthropic.com. Check your connection.';
+    answerEl.innerHTML += `<p class="err">${esc(msg)}</p>`;
+    $('#askStatus').textContent = '';
+    // Drop the unanswered turn so the conversation stays valid for the next question.
+    while (messages.length && !(messages[messages.length - 1].role === 'assistant' &&
+           !messages[messages.length - 1].content.some(b => b.type === 'tool_use'))) messages.pop();
+  } finally {
+    $('#askBtn').disabled = false;
+  }
+}
+$('#askBtn').onclick = ask;
+$('#question').addEventListener('keydown', e => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); ask(); } });
+</script>
+</body>
+</html>

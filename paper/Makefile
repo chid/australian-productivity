@@ -16,6 +16,7 @@ figures:
 
 html:
 	$(PANDOC) --standalone --embed-resources --toc -c paper.css -o build/paper.html
+	mkdir -p ../site/paper && cp build/paper.html ../site/paper/index.html
 
 docx:
 	$(PANDOC) -o build/paper.docx
