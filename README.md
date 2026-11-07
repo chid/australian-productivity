@@ -3,6 +3,8 @@
 A static site and open dataset. It compares Australia's labour productivity, using Productivity Commission data, with the United States, Canada, Europe and Southeast Asia, using OECD and ILO data.
 
 - `index.html`: the explainer page with interactive charts. It reads `data/productivity.json`.
+- `ask.html`: "Ask the data". Loads every CSV into DuckDB-WASM in the browser, with ready-made questions, a SQL console and optional plain-English Q&A through Claude using the visitor's own Anthropic API key (sent only to api.anthropic.com).
+- `paper/index.html`: the working paper, built by `make html` in `paper/` on `main`.
 - `data/*.csv`: tidy datasets, described in `data/datapackage.json` (Frictionless Data format).
 
 ## Hosting on GitHub Pages
